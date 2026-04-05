@@ -363,17 +363,6 @@
       </div>
     </button>
 
-    <button class="envelope-btn" onclick="openCard(4, event)">
-      <div class="btn-inner">
-        <span class="btn-icon">🦋</span>
-        <div>
-          <div class="btn-label">Para siempre</div>
-          <div class="btn-hint">Toca para leer</div>
-        </div>
-        <span class="btn-arrow">→</span>
-      </div>
-    </button>
-
   </div>
 
   <p class="footer">hecho con todo el amor del mundo 🤍</p>
@@ -453,20 +442,7 @@ Simplemente,
 
 Te amo 💛`
     },
-    {
-      title: "Para siempre",
-      body: `Esta es la carta más corta, pero la que viene más del fondo del corazón.
 
-Sin importar lo que venga, los días difíciles, los días fáciles, los días grises y los días llenos de color, quiero vivirlos todos contigo.
-
-Eres mi calma, mi alegría, mi hogar.
-
-Gracias por existir. Gracias por ser tú. Gracias por elegirme.
-
-Hoy, mañana y siempre,
-
-Te amo, mi niña hermosa 🌸✨💕`
-    }
   ];
 
   /* ── Petal rain ── */
