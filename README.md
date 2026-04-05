@@ -365,7 +365,7 @@
 
   </div>
 
-  <p class="footer">hecho con todo el amor del mundo 🤍</p>
+  <p class="footer">hecho con todo el amor del mundo</p>
 </div>
 
 <!-- Modal -->
@@ -382,65 +382,31 @@
   const cards = [
     {
       title: "Contigo",
-      body: `Mi niña hermosa, ya son 5 meses de estar juntotes y la verdad es que jamás pensé poder tener o merecer algo tan bonito como lo que tú me das.
+      body: `Mi niña hermosa ya son 5 meses de estar juntotes y la verdad es que jamas pense poder tener o merecer algo tan bonito como lo que tu me das, me salvaste, me sacaste de un agujero muy profundo y trajiste el sol a mis dias mas lluviosos dejando siempre un precioso arcoiris, no se a quien o a que agradecerle por haberme enviado a alguien como tu, tan hermosa, atenta, dedicada, trabajadora y lo mas importante igual de loca que yo, estos 5 meses solo los puedo describir como magicos, haces que el simple hecho de pensar en ti traiga una sonrisa a mi rostro y el hablarte provoque mariposas en mi estomago gracias por haberme escogido y prometo escogerte hoy y siempre por esta vida y todas las que siguen
 
-Me salvaste. Me sacaste de un agujero muy profundo y trajiste el sol a mis días más lluviosos dejando siempre un precioso arcoíris.
 
-No sé a quién o a qué agradecerle por haberme enviado a alguien como tú: tan hermosa, atenta, dedicada, trabajadora y lo más importante, igual de loca que yo.
-
-Estos 5 meses solo los puedo describir como mágicos. Haces que el simple hecho de pensar en ti traiga una sonrisa a mi rostro y el hablarte provoque mariposas en mi estómago.
-
-Gracias por haberme escogido. Y prometo escogerte hoy y siempre, por esta vida y todas las que siguen.
-
-Te amo 🌸`
+Te amo`
     },
     {
       title: "Tú",
-      body: `Sabes, siempre dije que eres todo lo bueno y bonito de este mundo, pero ¿qué es todo lo bueno y bonito de este mundo?
+      body: `Sabes siempre dije que eres todo lo bueno y bonito de este mundo pero ¿que es todo lo bueno y bonito de este mundo? Pues dejame decirte todo lo que te describe y identifica en mi mente y corazon
 
-Pues déjame decirte todo lo que te describe y te identifica en mi mente y corazón:
+Eres la chica más fokin 
+perfecta, dulce, cálida, amable, graciosa, guapa, hermosa, linda, preciosa, habladora, bella, increible, chistosa, sensible, carismática, inteligente, honesta, simpática, empatica, divertida, encantadora, apasionada, considerada, generosa, amistosa, interesante, sencilla, talentosa, creativa, cariñosa, confiable, graciosa, brillante, maravillosa, noble, romántica, chillona, auténtica, alegre, fantástica, increíble, genial, atenta, encantadora, espectacular, extraordinaria, excepcional, feliz, leal, única, apasionada, adorable, magnífica, fabulosa, atractiva, grandiosa, divina, perfecta y por eso
 
-Eres la chica más fokín perfecta, dulce, cálida, amable, graciosa, guapa, hermosa, linda, preciosa, habladora, bella, increíble, chistosa, sensible, carismática, inteligente, honesta, simpática, empática, divertida, encantadora, apasionada, considerada, generosa, amistosa, interesante, sencilla, talentosa, creativa, cariñosa, confiable, brillante, maravillosa, noble, romántica, chillona, auténtica, alegre, fantástica, genial, atenta, espectacular, extraordinaria, excepcional, feliz, leal, única, adorable, magnífica, fabulosa, atractiva, grandiosa, divina, perfecta.
-
-Y por eso,
-
-Te amo 💕`
+Te amo`
     },
     {
       title: "El destino",
-      body: `Sabes, amor, yo jamás he creído en cosas o poderes más allá, pero no hay otra forma de explicar lo que generó esta hermosa relación y conexión que tenemos, más que con el destino.
+      body: `Sabes amor yo jamas eh creido en cosas o poderes mas alla pero no hay otra forma de explicar lo que genero esta hermosa relacion y conexion que tenemos mas que con el destino, quien iba a decir que un tonto intento de un tonto niño de secundaria tendría un efecto en cadena tan grande como para llevarme a lo que ahora seria mi mundo entero, sinceramente no siento que todo esto sea una simple coincidencia ya que conectamos tan bien, tan rapido y de manera tan perfecta que me hacen sentir que siempre debiste ser, eres y seras tu la unica en mi vida y al parecer yo no soy el unico que piensa asi ya que tu misma me lo dijiste un dia, tambien piensas que todo este tiempo tu corazon me estuvo esperando y por esa reaccion tan hermosa
 
-¿Quién iba a decir que un tonto intento de un tonto niño de secundaria tendría un efecto en cadena tan grande como para llevarme a lo que ahora sería mi mundo entero?
-
-Sinceramente no siento que todo esto sea una simple coincidencia, ya que conectamos tan bien, tan rápido y de manera tan perfecta que me hacen sentir que siempre debiste ser, eres y serás tú la única en mi vida.
-
-Y al parecer yo no soy el único que piensa así, ya que tú misma me lo dijiste un día: también piensas que todo este tiempo tu corazón me estuvo esperando.
-
-Y por esa reacción tan hermosa,
-
-Te amo ✨`
+Te amo`
     },
     {
       title: "TE AMO",
-      body: `No sé cuánto tiempo me tomé hacer todo esto, pero espero tenerlo listo para cuando ya hayamos cumplido los 5 mesesotes, y si no pues te pido perdón de rodillas y te lo compensaré con unos abrazotes y unos besotes.
+      body: `No se cuánto tiempo me tome hacer todo esto pero espero tenerlo listo para cuando ya hayamos cumplido los 5 mesesotes y si no pues te pido perdon de rodillas y te lo compensare con unos abrazotes y unos besotes pero creo que con esto ya te eh dicho la mayoria de cosas que mi corazon y mente siempre repasan, asi que ya lo sabes mi niña hermosa, te amo de una manera que preocuparia a un psiquiatra, te amo de una manera que un matematico jamas podria cuantificar, te amo de una manera que un filosofo jamas podria imaginar, te amo de una manera que un poeta jamas podria plasmar, te amo mas que la inmensidad del univero observable, te ame ayer, te amo hoy y te amare mañana, simplemente 
 
-Pero creo que con esto ya te he dicho la mayoría de cosas que mi corazón y mente siempre repasan, así que ya lo sabes, mi niña hermosa:
-
-Te amo de una manera que preocuparía a un psiquiatra.
-
-Te amo de una manera que un matemático jamás podría cuantificar.
-
-Te amo de una manera que un filósofo jamás podría imaginar.
-
-Te amo de una manera que un poeta jamás podría plasmar.
-
-Te amo más que la inmensidad del universo observable.
-
-Te amé ayer, te amo hoy y te amaré mañana.
-
-Simplemente,
-
-Te amo 💛`
+Te amo`
     },
 
   ];
