@@ -363,6 +363,17 @@
       </div>
     </button>
 
+    <button class="envelope-btn" onclick="openCard(4, event)">
+      <div class="btn-inner">
+        <span class="btn-icon">🦋</span>
+        <div>
+          <div class="btn-label">Recuerdos</div>
+          <div class="btn-hint">Toca para leer</div>
+        </div>
+        <span class="btn-arrow">→</span>
+      </div>
+    </button>
+
   </div>
 
   <p class="footer">hecho con todo el amor del mundo</p>
@@ -409,6 +420,10 @@ Te amo`
 Te amo`
     },
 
+    {
+      title: "Recuerdos",
+      body: `MI NIÑA HERMOSAAAAA, ya vamos pa medio añito y la verdad es que no puedo estar mas feliz de haber compartido mi vida junto a una persona tan maravillosa como tu, gracias por ser mi rayito de sol, mi esperanza y mi razon para seguir adelante, aun recuerdo la primera vez que pensamos en nuestros apodos, cuando instalamos la app, el chiste del pinguino, por mas tontos o minusculos que sean yo realmente los atesoro ya que tu tienes ese poder en mi de hacer cualquier momento algo memorable, algo especial, algo realmente hermoso (no tanto como tu) gracias haberme elegido y seguirme eligiendo como el afortunado que puede tener el privilegio de llamarte su novia, gracias por hacerme el hombre mas feliz de este fokin mundo y espero estar logrando el mismo efecto en ti, por todos estos recuerdos y la manera en la que haces de mi vida algo por lo que vale la pena continuar, te amo <3`
+    },
   ];
 
   /* ── Petal rain ── */
