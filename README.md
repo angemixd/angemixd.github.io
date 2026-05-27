@@ -127,6 +127,57 @@
     .envelope-btn:nth-child(3) { animation-delay: .81s; }
     .envelope-btn:nth-child(4) { animation-delay: .94s; }
     .envelope-btn:nth-child(5) { animation-delay:1.07s; }
+    .envelope-btn:nth-child(6) { animation-delay:1.20s; }
+
+    /* ── Blue octopus theme ── */
+    body.blue-mode {
+      background: #e8f4fd;
+      transition: background .6s ease;
+    }
+    body.blue-mode .hero h1,
+    body.blue-mode .btn-label,
+    body.blue-mode .letter-title,
+    body.blue-mode .letter-body { color: #1a3a5c; }
+    body.blue-mode .hero-sub,
+    body.blue-mode .btn-hint,
+    body.blue-mode .footer { color: #4a7fa5; }
+    body.blue-mode .divider { background: linear-gradient(90deg, transparent, #5ba3d0, transparent); }
+    body.blue-mode .envelope-btn {
+      background: linear-gradient(135deg, #e0f0ff 0%, #d0e8ff 100%);
+      border-color: #90c4e8;
+      box-shadow: 0 2px 16px rgba(91,163,208,.2);
+    }
+    body.blue-mode .envelope-btn:hover {
+      border-color: #5ba3d0;
+      box-shadow: 0 8px 32px rgba(91,163,208,.35);
+    }
+    body.blue-mode .envelope-btn::before {
+      background: linear-gradient(135deg, rgba(176,220,255,.5), rgba(144,196,232,.4));
+    }
+    body.blue-mode .btn-arrow { color: #5ba3d0; }
+    body.blue-mode .overlay { background: rgba(10,40,80,.5); }
+    body.blue-mode .letter-card {
+      background: #f0f8ff;
+      border-color: #90c4e8;
+      box-shadow: 0 24px 80px rgba(10,40,80,.2);
+    }
+    body.blue-mode .letter-card::before,
+    body.blue-mode .letter-card::after { color: #5ba3d0; }
+    body.blue-mode .letter-title::after { background: linear-gradient(90deg, transparent, #5ba3d0, transparent); }
+    body.blue-mode .letter-card::-webkit-scrollbar-thumb { background: #5ba3d0; }
+    body.blue-mode .letter-close {
+      background: linear-gradient(135deg, #5ba3d0, #2a6fa8);
+      box-shadow: 0 4px 18px rgba(91,163,208,.45);
+    }
+    body.blue-mode .letter-close:hover { box-shadow: 0 8px 28px rgba(91,163,208,.55); }
+
+    /* Octopus special button */
+    .octopus-btn {
+      background: linear-gradient(135deg, #c8e6f8 0%, #b0d8f5 100%) !important;
+      border-color: #5ba3d0 !important;
+    }
+
+
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(30px); }
@@ -292,6 +343,24 @@
       100% { opacity: 0;   transform: translate(var(--dx), var(--dy)) scale(1.4); }
     }
 
+
+    /* ── Octopus layer inside overlay (behind card) ── */
+    .octo-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .overlay > .letter-card { z-index: 1; }
+    .octo-float {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0;
+      animation: floatPetal linear infinite;
+      pointer-events: none;
+    }
+
     /* ── Footer ── */
     .footer {
       text-align: center;
@@ -307,217 +376,124 @@
 <body>
 
 <!-- Petal rain -->
-<div class="petals-bg" id="petalsBg"></div>
 
-<div class="wrapper">
-  <header class="hero">
-    <span class="hero-deco">🌸 ✦ 🌸</span>
-    <h1>Para mi niña hermosa</h1>
-    <p class="hero-sub">Abre cada carta con cariño</p>
-    <div class="divider"></div>
-  </header>
-
-  <div class="btn-list">
-
-    <button class="envelope-btn" onclick="openCard(0, event)">
-      <div class="btn-inner">
-        <span class="btn-icon">💌</span>
-        <div>
-          <div class="btn-label">Contigo</div>
-          <div class="btn-hint">Toca para leer</div>
-        </div>
-        <span class="btn-arrow">→</span>
-      </div>
-    </button>
-
-    <button class="envelope-btn" onclick="openCard(1, event)">
-      <div class="btn-inner">
-        <span class="btn-icon">🌷</span>
-        <div>
-          <div class="btn-label">Tú</div>
-          <div class="btn-hint">Toca para leer</div>
-        </div>
-        <span class="btn-arrow">→</span>
-      </div>
-    </button>
-
-    <button class="envelope-btn" onclick="openCard(2, event)">
-      <div class="btn-inner">
-        <span class="btn-icon">✨</span>
-        <div>
-          <div class="btn-label">El destino</div>
-          <div class="btn-hint">Toca para leer</div>
-        </div>
-        <span class="btn-arrow">→</span>
-      </div>
-    </button>
-
-    <button class="envelope-btn" onclick="openCard(3, event)">
-      <div class="btn-inner">
-        <span class="btn-icon">🌸</span>
-        <div>
-          <div class="btn-label">TE AMO</div>
-          <div class="btn-hint">Toca para leer</div>
-        </div>
-        <span class="btn-arrow">→</span>
-      </div>
-    </button>
-
-    <button class="envelope-btn" onclick="openCard(4, event)">
-      <div class="btn-inner">
-        <span class="btn-icon">🦋</span>
-        <div>
-          <div class="btn-label">Recuerdos</div>
-          <div class="btn-hint">Toca para leer</div>
-        </div>
-        <span class="btn-arrow">→</span>
-      </div>
-    </button>
-
-  </div>
-
-  <p class="footer">hecho con todo el amor del mundo 🤍</p>
-</div>
-
-<!-- Modal -->
-<div class="overlay" id="overlay" onclick="closeOnBg(event)">
-  <div class="letter-card" id="letterCard">
-    <div class="letter-title" id="cardTitle"></div>
-    <div class="letter-body"  id="cardBody"></div>
-    <button class="letter-close" onclick="closeCard()">Cerrar carta 🌸</button>
-  </div>
-</div>
-
-<script>
-  /* ── Letter data ── */
-  const cards = [
-    {
-      title: "Contigo",
-      body: `Mi niña hermosa, ya son 5 meses de estar juntotes y la verdad es que jamás pensé poder tener o merecer algo tan bonito como lo que tú me das.
-
-Me salvaste. Me sacaste de un agujero muy profundo y trajiste el sol a mis días más lluviosos dejando siempre un precioso arcoíris.
-
-No sé a quién o a qué agradecerle por haberme enviado a alguien como tú: tan hermosa, atenta, dedicada, trabajadora y lo más importante, igual de loca que yo.
-
-Estos 5 meses solo los puedo describir como mágicos. Haces que el simple hecho de pensar en ti traiga una sonrisa a mi rostro y el hablarte provoque mariposas en mi estómago.
-
-Gracias por haberme escogido. Y prometo escogerte hoy y siempre, por esta vida y todas las que siguen.
-
-Te amo`
-    },
-    {
-      title: "Tú",
-      body: `Sabes, siempre dije que eres todo lo bueno y bonito de este mundo, pero ¿qué es todo lo bueno y bonito de este mundo?
-
-Pues déjame decirte todo lo que te describe y te identifica en mi mente y corazón:
-
-Eres la chica más fokín perfecta, dulce, cálida, amable, graciosa, guapa, hermosa, linda, preciosa, habladora, bella, increíble, chistosa, sensible, carismática, inteligente, honesta, simpática, empática, divertida, encantadora, apasionada, considerada, generosa, amistosa, interesante, sencilla, talentosa, creativa, cariñosa, confiable, brillante, maravillosa, noble, romántica, chillona, auténtica, alegre, fantástica, genial, atenta, espectacular, extraordinaria, excepcional, feliz, leal, única, adorable, magnífica, fabulosa, atractiva, grandiosa, divina, perfecta.
-
-Y por eso,
-
-Te amo`
-    },
-    {
-      title: "El destino",
-      body: `Sabes, amor, yo jamás he creído en cosas o poderes más allá, pero no hay otra forma de explicar lo que generó esta hermosa relación y conexión que tenemos, más que con el destino.
-
-¿Quién iba a decir que un tonto intento de un tonto niño de secundaria tendría un efecto en cadena tan grande como para llevarme a lo que ahora sería mi mundo entero?
-
-Sinceramente no siento que todo esto sea una simple coincidencia, ya que conectamos tan bien, tan rápido y de manera tan perfecta que me hacen sentir que siempre debiste ser, eres y serás tú la única en mi vida.
-
-Y al parecer yo no soy el único que piensa así, ya que tú misma me lo dijiste un día: también piensas que todo este tiempo tu corazón me estuvo esperando.
-
-Y por esa reacción tan hermosa,
-
-Te amo`
-    },
-    {
-      title: "TE AMO",
-      body: `No sé cuánto tiempo me tomé hacer todo esto, pero espero tenerlo listo para cuando ya hayamos cumplido los 5 mesesotes, y si no pues te pido perdón de rodillas y te lo compensaré con unos abrazotes y unos besotes.
-
-Pero creo que con esto ya te he dicho la mayoría de cosas que mi corazón y mente siempre repasan, así que ya lo sabes, mi niña hermosa:
-
-Te amo de una manera que preocuparía a un psiquiatra.
-
-Te amo de una manera que un matemático jamás podría cuantificar.
-
-Te amo de una manera que un filósofo jamás podría imaginar.
-
-Te amo de una manera que un poeta jamás podría plasmar.
-
-Te amo más que la inmensidad del universo observable.
-
-Te amé ayer, te amo hoy y te amaré mañana.
-
-Simplemente,
-
-Te amo`
-    },
-    {
-      title: "Recuerdos",
-      body: `MI NIÑA HERMOSAAAAA, ya vamos pa medio añito y la verdad es que no puedo estar más feliz de haber compartido mi vida junto a una persona tan maravillosa como tú.
-
-Gracias por ser mi rayito de sol, mi esperanza y mi razón para seguir adelante.
-
-Aun recuerdo la primera vez que pensamos en nuestros apodos, cuando instalamos la app, el chiste del pingüino… por más tontos o minúsculos que sean, yo realmente los atesoro, ya que tú tienes ese poder en mí de hacer cualquier momento algo memorable, algo especial, algo realmente hermoso (no tanto como tú).
-
-Gracias por haberme elegido y seguirme eligiendo como el afortunado que puede tener el privilegio de llamarte su novia. Gracias por hacerme el hombre más feliz de este fokín mundo, y espero estar logrando el mismo efecto en ti.
-
-Por todos estos recuerdos y la manera en la que haces de mi vida algo por lo que vale la pena continuar,
-
-Te amo`
-    }
-  ];
-
-  /* ── Petal rain ── */
-  const symbols = ['🌸','🌺','✿','❀','🌷','💮'];
-  const bg = document.getElementById('petalsBg');
-  for (let i = 0; i < 22; i++) {
-    const p = document.createElement('span');
-    p.classList.add('petal');
-    p.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-    p.style.left      = Math.random() * 100 + 'vw';
-    p.style.fontSize  = (.8 + Math.random() * .9) + 'rem';
-    p.style.animationDuration  = (9 + Math.random() * 14) + 's';
-    p.style.animationDelay     = (Math.random() * 12) + 's';
-    bg.appendChild(p);
-  }
-
-  /* ── Open / close modal ── */
-  const overlay    = document.getElementById('overlay');
-  const cardTitle  = document.getElementById('cardTitle');
-  const cardBody   = document.getElementById('cardBody');
-  const letterCard = document.getElementById('letterCard');
-
-  function openCard(index, e) {
-    spawnHearts(e.clientX, e.clientY);
-    cardTitle.textContent = cards[index].title;
-    cardBody.textContent  = cards[index].body;
-    letterCard.scrollTop  = 0;
-    overlay.classList.add('open');
-  }
-
-  function closeCard() { overlay.classList.remove('open'); }
-  function closeOnBg(e) { if (e.target === overlay) closeCard(); }
-
-  /* ── Heart burst ── */
-  function spawnHearts(cx, cy) {
-    const hearts = ['💕','💖','🌸','✨','💗'];
-    for (let i = 0; i < 10; i++) {
-      const h = document.createElement('span');
-      h.classList.add('burst-heart');
-      h.textContent = hearts[Math.floor(Math.random() * hearts.length)];
-      const angle = Math.random() * 2 * Math.PI;
-      const dist  = 60 + Math.random() * 90;
-      h.style.left = cx + 'px';
-      h.style.top  = cy + 'px';
-      h.style.setProperty('--dx', Math.cos(angle) * dist + 'px');
-      h.style.setProperty('--dy', Math.sin(angle) * dist + 'px');
-      h.style.animationDelay = Math.random() * .15 + 's';
-      document.body.appendChild(h);
-      setTimeout(() => h.remove(), 1100);
-    }
-  }
-</script>
-</body>
-</html>
+<!-- Hidden audio player -->
+<audio id="bgMusic" loop>
+  <source src="data:audio/mpeg;base64,SUQzBAAAAAABAFRYWFgAAAASAAADbWFqb3JfYnJhbmQAZGFzaABUWFhYAAAAEQAAA21pbm9yX3Zl
+cnNpb24AMABUWFhYAAAAHAAAA2NvbXBhdGlibGVfYnJhbmRzAGlzbzZtcDQxAFRTU0UAAAAPAAAD
+TGF2ZjYwLjE2LjEwMAAAAAAAAAAAAAAA//uwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAASW5mbwAAAA8AAB+IAE06mwADBggLDRASFRcaHB8hJCYpKy4wMzU4Oj1AQ0ZIS01QUlVXWlxf
+YWRmaWtucHN1eHp9gIKFiIuNkJKVl5qcn6GkpqmrrrCztbi6vcDCxcfKzdDS1dfa3N/h5Obp6+7w
+8/X4+v0AAAAATGF2YzYwLjMxAAAAAAAAAAAAAAAAJAQAAAAAAABNOpv3EIBqAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/+7BkAAcFImc8qeZJMkvAB8wEI24XxZj6DKWACV6zIAAh
+m9kEAAAMB7nWc51s9n0T0wgQAAoCgYDYJnyBAoghbEEGagJM2iBioekCYYQBQMWogrMXRhcDZvzR
+sXOoLtBQwgTRyIEBAKHYujbIHI5o2F3wtcLm1EaOSBhRAwuCAYJIXOkDE5znOaNu1QuG3qCgKAg5
+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
