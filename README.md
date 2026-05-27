@@ -27,47 +27,7 @@
       min-height: 100vh;
       overflow-x: hidden;
       position: relative;
-      transition: background 1s ease, color 1s ease;
     }
-
-    /* ── Blue mode ── */
-    body.blue-mode {
-      background: #0d1b2e;
-      color: #cce4ff;
-    }
-    body.blue-mode .hero h1,
-    body.blue-mode .btn-label { color: #a8d4ff; }
-    body.blue-mode .hero-sub,
-    body.blue-mode .btn-hint,
-    body.blue-mode .footer  { color: #6aaed6; }
-    body.blue-mode .divider { background: linear-gradient(90deg, transparent, #5baee0, transparent); }
-    body.blue-mode .envelope-btn {
-      background: linear-gradient(135deg, #0f2a45 0%, #162e50 100%);
-      border-color: #2a6496;
-      box-shadow: 0 2px 16px rgba(91,174,224,.18);
-    }
-    body.blue-mode .envelope-btn:hover {
-      border-color: #5baee0;
-      box-shadow: 0 8px 32px rgba(91,174,224,.35);
-    }
-    body.blue-mode .btn-arrow { color: #5baee0; }
-    body.blue-mode .overlay  { background: rgba(5,18,35,.6); }
-    body.blue-mode .letter-card {
-      background: #0e2038;
-      border-color: #2a5f8a;
-      box-shadow: 0 24px 80px rgba(0,80,160,.4);
-      color: #cce4ff;
-    }
-    body.blue-mode .letter-title { color: #a8d4ff; }
-    body.blue-mode .letter-body  { color: #cce4ff; }
-    body.blue-mode .letter-title::after { background: linear-gradient(90deg, transparent, #5baee0, transparent); }
-    body.blue-mode .letter-card::before,
-    body.blue-mode .letter-card::after  { color: #5baee0; }
-    body.blue-mode .letter-close {
-      background: linear-gradient(135deg, #1a6fad, #2a9bd4);
-      box-shadow: 0 4px 18px rgba(42,155,212,.4);
-    }
-    body.blue-mode .petals-bg { display: none; }
 
     /* ── Floating petals background ── */
     .petals-bg {
@@ -88,29 +48,6 @@
       10%  { opacity: 0.55; }
       90%  { opacity: 0.35; }
       100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
-    }
-
-    /* ── Octopus border rain ── */
-    .octo-container {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 101;
-      overflow: hidden;
-      display: none;
-    }
-    .octo-container.active { display: block; }
-    .octo {
-      position: absolute;
-      font-size: 1.6rem;
-      opacity: 0;
-      animation: octoFall linear infinite;
-    }
-    @keyframes octoFall {
-      0%   { opacity: 0; transform: translateY(-80px) rotate(0deg) scale(.7); }
-      10%  { opacity: .85; }
-      90%  { opacity: .6; }
-      100% { opacity: 0; transform: translateY(110vh) rotate(400deg) scale(1.1); }
     }
 
     /* ── Wrapper ── */
@@ -147,7 +84,6 @@
       color: var(--text);
       line-height: 1.15;
       animation: fadeDown .9s .25s ease both;
-      transition: color 1s;
     }
     .hero-sub {
       margin-top: 14px;
@@ -155,7 +91,6 @@
       color: var(--muted);
       letter-spacing: .06em;
       animation: fadeDown .9s .35s ease both;
-      transition: color 1s;
     }
     .divider {
       margin: 28px auto 0;
@@ -164,7 +99,6 @@
       background: linear-gradient(90deg, transparent, var(--rose), transparent);
       border-radius: 2px;
       animation: fadeDown .9s .45s ease both;
-      transition: background 1s;
     }
 
     /* ── Button list ── */
@@ -183,7 +117,7 @@
       padding: 22px 28px;
       cursor: pointer;
       text-align: left;
-      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease, background 1s, color 1s;
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
       box-shadow: 0 2px 16px rgba(244,167,185,.18);
       animation: fadeUp .7s ease both;
       overflow: hidden;
@@ -193,7 +127,6 @@
     .envelope-btn:nth-child(3) { animation-delay: .81s; }
     .envelope-btn:nth-child(4) { animation-delay: .94s; }
     .envelope-btn:nth-child(5) { animation-delay:1.07s; }
-    .envelope-btn:nth-child(6) { animation-delay:1.20s; }
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(30px); }
@@ -230,7 +163,6 @@
       font-size: 1.15rem;
       font-style: italic;
       color: var(--text);
-      transition: color 1s;
     }
     .btn-hint {
       font-family: 'Lora', serif;
@@ -238,13 +170,12 @@
       color: var(--muted);
       margin-top: 3px;
       font-style: normal;
-      transition: color 1s;
     }
     .btn-arrow {
       margin-left: auto;
       font-size: 1.1rem;
       color: var(--rose);
-      transition: transform .25s, color 1s;
+      transition: transform .25s;
       flex-shrink: 0;
     }
     .envelope-btn:hover .btn-arrow { transform: translateX(5px); }
@@ -262,7 +193,7 @@
       padding: 20px;
       opacity: 0;
       pointer-events: none;
-      transition: opacity .35s ease, background 1s;
+      transition: opacity .35s ease;
     }
     .overlay.open {
       opacity: 1;
@@ -280,7 +211,7 @@
       box-shadow: 0 24px 80px rgba(90,62,75,.25);
       position: relative;
       transform: scale(.88) translateY(30px);
-      transition: transform .4s cubic-bezier(.34,1.56,.64,1), background 1s, border-color 1s, color 1s, box-shadow 1s;
+      transition: transform .4s cubic-bezier(.34,1.56,.64,1);
       padding: 48px 40px 40px;
       border: 1.5px solid #f5d5e0;
     }
@@ -288,10 +219,12 @@
       transform: scale(1) translateY(0);
     }
 
+    /* scrollbar inside card */
     .letter-card::-webkit-scrollbar { width: 5px; }
     .letter-card::-webkit-scrollbar-track { background: transparent; }
     .letter-card::-webkit-scrollbar-thumb { background: var(--rose); border-radius: 10px; }
 
+    /* corner deco */
     .letter-card::before,
     .letter-card::after {
       content: '✿';
@@ -299,7 +232,6 @@
       color: var(--rose);
       opacity: .5;
       font-size: 1.3rem;
-      transition: color 1s;
     }
     .letter-card::before { top: 14px; left: 18px; }
     .letter-card::after  { bottom: 14px; right: 18px; transform: rotate(180deg); }
@@ -312,7 +244,6 @@
       margin-bottom: 28px;
       color: var(--text);
       position: relative;
-      transition: color 1s;
     }
     .letter-title::after {
       content: '';
@@ -322,7 +253,6 @@
       height: 2px;
       background: linear-gradient(90deg, transparent, var(--rose), transparent);
       border-radius: 2px;
-      transition: background 1s;
     }
 
     .letter-body {
@@ -330,7 +260,6 @@
       line-height: 1.85;
       white-space: pre-wrap;
       color: var(--text);
-      transition: color 1s;
     }
 
     .letter-close {
@@ -346,7 +275,7 @@
       cursor: pointer;
       letter-spacing: .04em;
       box-shadow: 0 4px 18px rgba(244,167,185,.4);
-      transition: transform .2s, box-shadow .2s, background 1s;
+      transition: transform .2s, box-shadow .2s;
     }
     .letter-close:hover { transform: scale(1.04); box-shadow: 0 8px 28px rgba(244,167,185,.5); }
 
@@ -372,7 +301,6 @@
       letter-spacing: .05em;
       animation: fadeUp .7s 1.3s ease both;
       opacity: 0;
-      transition: color 1s;
     }
   </style>
 </head>
@@ -381,9 +309,215 @@
 <!-- Petal rain -->
 <div class="petals-bg" id="petalsBg"></div>
 
-<!-- Octopus border rain (blue card only) -->
-<div class="octo-container" id="octoContainer"></div>
+<div class="wrapper">
+  <header class="hero">
+    <span class="hero-deco">🌸 ✦ 🌸</span>
+    <h1>Para mi niña hermosa</h1>
+    <p class="hero-sub">Abre cada carta con cariño</p>
+    <div class="divider"></div>
+  </header>
 
-<!-- Hidden audio -->
-<audio id="bgMusic" loop>
-  <source src="data:audio/mpeg;base64,SUQzBAAAAAABAFRYWFgAAAASAAADbWFqb3JfYnJhbmQAZGFzaABUWFhYAAAAEQAAA21pbm9yX3ZlcnNpb24AMABUWFhYAAAAHAAAA2NvbXBhdGlibGVfYnJhbmRzAGlzbzZtcDQxAFRTU0UAAAAPAAADTGF2ZjYwLjE2LjEwMAAAAAAAAAAAAAAA//uwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASW5mbwAAAA8AAB+IAE06mwADBggLDRASFRcaHB8hJCYpKy4wMzU4Oj1AQ0ZIS01QUlVXWlxfYWRmaWtucHN1eHp9gIKFiIuNkJKVl5qcn6GkpqmrrrCztbi6vcDCxcfKzdDS1dfa3N/h5Obp6+7w8/X4+v0AAAAATGF2YzYwLjMxAAAAAAAAAAAAAAAAJAQAAAAAAABNOpv3EIBqAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/+7BkAAcFImc8qeZJMkvAB8wEI24XxZj6DKWACV6zIAAhm9kEAAAMB7nWc51s9n0T0wgQAAoCgYDYJnyBAoghbEEGagJM2iBioekCYYQBQMWogrMXRhcDZvzRsXOoLtBQwgTRyIEBAKHYujbIHI5o2F3wtcLm1EaOSBhRAwuCAYJIXOkDE5znOaNu1QuG3qCgKAg5Ax7nVt0Rk8126YgmKGSM2QMo1kDdQzwtHNiEFCRM2QEkoflwuTyhNG3MjfDwpAg6mI2wxgoEsiXMACC3h8gUAcT4gBCsH5RwgcUBA5nAfGnzi0kPKQQEjrQQP4gADlHMQdQRPh+s+T6jkoCAn/B8cCAQBCTYGAfHBF8PggEQxicbFYKVCK06ZukaH8rH5SVtLF6vxyBuqOHVgsSEiBEkV0U+W0Ekg3J544Vx5Kqsj6AxcU4NkPBPXiQShIcSeSUepy+PRmYnw+PGSv1cmKASFpWKwxME9CrC9ARRDYJUnJukM+w5K5BPKFg8RLFaYfG3qMMvQqkgFzBgfxySmSU9H/j98ka2PCR3HxIqqQyuCZ6YsipocS8mureeHxewYv9JxUeIR8ICMln2ExOoSjc+ssNDhlw6T2uI586oQiSHWMp0edWtYn//6zf/owNQRxmDFIdgRghf+fHDsLX3wTyD/+Y0KDM4iXkcr5m4Sl+fb0yjl1PMiKikiCXFwjQnOe6w2sJac7Lxc7JDYOdymx8OvRbvOuWmLQBAAUoRCOsocO3ELg8auzkSkJDGVzMkM5NIlmHgf5hIZMqlK8Ra/MiVhZYlIik4vlcOxoHdBjEYMhLOjEtCSdLzhpQLUzSoUv/7smQkCRbIZz4rL2HwX2xIGAQjLlmlnPwsvYnBaTMgsDCOYS4CJJbK5sCJ0ZEqIuITojL01ak4tlIvjyBYSR3PRMYH4lMCWOYNC8SxyEeAiCk4MRVUPTQok4umR8E9SuX15wjNBHDYrIYj6uOT4kB2ToSXGcHb0bLRqX1EbjZHOyOdB6fvWKZ+VVcJLOQ40qF0gjoTy8DYJUqcWDunYJJ+Ip2FNBKPzlcaHac8sE47nQgPh/cAAQngkiVsZsykPwJzZNG/oIpoiRTjF84YgSoCE1pK8a6IIQ8O3SrmeU5JTc/MsTuigih70ZhJvnenwRMs0YGpn69wSEdvQ9pmbGR2orVM6STKr5zFG/CqFmw4jBzwsogBoF6IFWIulXSnla0cFjDpTGU1GN94okU9UM50tN1KXg7o7an3z2Ifkx3sw69pk/jKhMVqGzpoJBTVlwrn5qe1JxIUsFUrlE1CkTqHZ2sEUamSLEZnZOITxMKQAaChIkq00OiwUobmRXPTZdAywpC897WCKdIlS1UyfD0TFSo5JZUOiKIZaBogFg4MUyxCSGB1SqDEcj4PqozjXh4I0ZNXkLFhaum1lONatckKxk4rfJBiUScuIz2nhUVnJSIFLGZGNjdStOXIzwmEikdmAQBgBAGZFOUvociUv7a2xAVZouBiEip/4j1rMVpIe5/aXMMXVCdT1cp0vDqLgtdOn3Q3Pq7SndzY6WCL6urmGJaxOfSbZageHTjmZtpuZbnHMh/eMRx2GBWZMzAiAb1cTL46X/clWRTcetgUgmAnkCJlKlsLoiG58UaHoJnYZ3sx9NrfMxFwVjKM07jhVFTIqP/7smQbifZpZz8DL2JwXSyoEAQjLlp1nP7MvZCBP7GgQAEOobiEVC4HGqT2vCDgVmpaXRPGRYEk/RhMGDRWHoZk8dhoODI8Ko1eO8J8XT9aeFtkTiIbukC5gXZQbDQd2bVYTSk8kaZeHsjkcerFM8JR+0Yrz55GJDJ6kWHA4iA06SLpC4ULEl5woCQhMk0sHZdXR1VwCESmIRrTLVBUWLC8vRLcPUJDH43cRodnY1xuiUEg3Qjmhsjuz2HLVCEf8Rl69ihXaWfOmh06GbVf6Z1+qEVTz/lKq+R1Qj55hXwYJBD+soZ5e4NuGLNCOnhtkRhhNCXmGEgAhLJowQ3mmgpEMZASXtwYIOoyMKfdUOPiSCsb5mJ6ws0on0XRMjUOLsJWOIaRxwrg5BCNJxpyuH8aipu/QCThtJ5GBgFAK4IuR7W5PTtAfB3zJZ8zB+NJSAWZEADqXFiouNiciHYVEhSdE03MoyePCvHjIzLJPHlGJZEE8Cq50nYVi1dBQnyehJXlx0evD+8SCVK8wPLnZ8I5CExaTKEg4MB3IpOwntPRuoRSTIlCpZZ1GuLHHFDkSh2cZSGpm4PywrVSFcmojGFcjHCxau4cvwFuER/jKyle0pjMRzOoy9R65JMIlvKfMhPJzo5pT6T9Y22+OZls/6MRVKrudf0yLzoN/+tw/g491oksUDQG5y0gwO/w19ITl9BFCd3AB0Aw/pnKEFFSFxQpDrFQMeyHdbgAlnMaV27gGJCmAhcEwdwS7p0gBAJGM7BUUdmG0PGKUmXVmQfHjXlDguoOQBZ0k04XnQoHDGkLxLBByC8oGGjOxNGqJoZu6mOrtf/7smQcBPbkZz+rWGJgSsx4EAAjqFtZmwCt5YmBRbOfgAEniKVnKOP4JBbKqFU4TB6EaMnSCDpVJokiWKz1cblwrlQlFwuvCChHAvCo5hbRkwiEhEPoqKxNLbasfVrZEHM/1UwqsSCSRTc/VsrmEIkH9ozoN0AmAbLhAMTU5lYJYlFZcIJFSrzFI7xchBNGaRwTQQTlBWL61LdzMuYuictC2+hmdIB8SssmzLCZ1BhUuFs84hFdeg1XLWTU6Kek9XC6qXFcqsGKoTnL+Smiwxfi5+j//3h/he7cPJxA+O5OSBPB8M4QOEx+QDmbuamxOGxwyKu+5AjdAoYLDJGJQwhoa51AXQNszqiwsBE6BuOBiqJ1CQQByCYaPmHBpfkwQCA1wZIwGJFRzKCYiPhSByw/cwxkoRI5YcsoLFg5dDqFwBo9/gxF3SYd41WCEd2lbYEjEqlcQMCWAOWFp8T1I6Jh6OiojPiMtKx+6vHpedInCuWbHxZJ5+clU6YXkcyEJJcQxGLZ2vQj2BMDYLnAZq0IxKaVhlAq8swuauhX1igPPXuERcYenssL1kS49Q0R0sTGF7tMpR3cqjOiu66usY6oV0w5XJ4cafIB+OlF71Fy5JjrrCgyKxNOXh0SKz9KpNjiFcemBymOEBlMb4ld/1fV/+pz5ABvTSHWsOtPcdah2X03GjEWp1DC1OnU7mbttJ01U00J5OXT3LYgqy87JeWSNqMtIpygZcjWQKmc67FHoStH1VctWcjc0WnmAvbTCggMWFw5kJ2cxRLJFAxsdFgM6SeNLBzNRIx4mEbKcWFmABjPGRmCsXpMSgswBTxVk3bgEv/7smQZjObMZ0ALeWNAS+zIEgBG4ltpmQJN5Y2I4TMjCACPjeAZ36X++zkoIEB7GB5yKPdKZlkuEw8ItTol2o6hHUbhmbF9KiOC3EJfjgfGCQ5G4DEILjXCUJx0SBmqB/WOfRunFS8gvHxPhac/ysV4oVJHxcavuenVkwvNwIZyTzg9bcVLGy6iVLDusd0plloDv968mKlDdEseldWjhhDP0/DQsXoRVTKCQvhXNN0XSvNGD9g7KZsjREuBcgExpJCYxnFEvfCTlr9ABSD/Bo0G//UhMxi9qWMeWhlHO2XrdBiJRS6cBkQm+eQhAkaMS20XDPH3tph2nnS2GRtbbdOsKWaccmVaTRMXWS6ryirp6Lej6kxxhAIAEGJEhm8NxhgcApw0VLMPfj8Ho2VxM1FS2RjzSamYA0QMBGG9GmDZLUvAg4sqQcnQWBt23Y9AiqQcIhequMgp80kvvs3dqIUVZuSwEtQ/iitiYkHVY3SXKTMABcJ5XQTodh3gjWqA2wxKQ6YeFKjicmqFqQqAm1DsDignnLEFy9TCofnRu/VlnF6evvJjw7OhyeN2tsXmzSy5KbHj57GcQOl/DL0TaxZthLLmL0MuHJ+25SjMEHFqLOhdRQxsXcdbKRg6kP4WJes7xgVEi2pkeGKqGpeONEhhPQ//Dnm+U6PMIfsQ6O5ijKkEn3peUnqV3Uvpyf7rEkI77LJ3MHlWh6BiIlITkkNDZzQbg2+0KjvPBAxItND8zbE0xJ0OoTxJPM5zzNy4wevOOMA50MHUzSxpeJkIQNIhw5lhmpOIRh3AA9AcUFTjCYjKJjH7ArgQ4WkaijmyuIgIdP/7smQkgPdVZ0CLeWNwSMxIAQBG4llRnRNNPTTBEbOfwAEbyCBT83SXJC15pIY0Igg4Ry4FkUPP+oYzlxW2BgAwMngOjrfdidhDkMxfs/T3QgkXPEtXd1tDuPlSqqJYMia2RioRiUerQ/SkNg9H1O4hHi+JfU4X3s23A6dpFzEB4iOjtYdH37DdXAqKZOSrnfLCGyrHlHC2wuZs43ZlyOMmrz8nPLi6mPG0WFm91CH9UUOL7sF8pUODqvHcZLUPpnapni21GEH/M/UW5HHQKrX/+Zbbmw68rOz8J3sX2h4lDIjn9XX+kRWXtl7hh1g5WaxPPpadB+ayclk7QPNBzjJnDM1BNM+JtzYw4NsXtUQAgBIDjbbODSYFum1RgLqa9WYV4a0Ydr8ZIGDlaJoQ1MCJLTL/TZaeAALblQom0XSLYpGJyMUnFduGDgiHKRPjnJWPlwrhXoXEPwCyYD0ZmrMkZialYYJPz/QZfH0X2hQoxowd5KV1okJRthcNkwjICNdCZTEeozpOHyNWsjTR9Zxo8iIHsbhzE2YFIMfUL4ISzxmCUUUlsQ3FRGnNdtXTjKNdJdEgmv6ghTneIyk2GWGF272BdFVLtpskLh7RUnNpN7RMhWOtpwakpWDTOMZv+qYCUSrwrYqr/X8vgFWA6oTX3w4k5FH0BEtO6WPJ2uchEpjk7BzN13iKrU+wLYOoCjINSuD2I1S8DnbXR7qVAAcklipi7cZ2FnE74XNzDDcKhRgKIoob6YIGGdhws+JIgoifgADeccMLLMYS6q2BhhaUQCTgWOnIW5Hip7sahx90eFJPtSXJxxKNh6UbNkTm7WdS+f/7smQqhPd2Z0SbeHtwRcxnoAAr8h9Fny1NYfPA/TGdgAAueXQy4PWGOIlCmSJj3Ofhg1Vr8zNGZ36ydbxsYgbBWufvuGJ4IQOhTsG1XuOf52KlXI0A7FINBVIcp2dC1ITxTo+EpUXLdPqJQSOcVWxcP3J21NrKoGVs+2uMpmpGRo/TMG97tzAn3ssZ5Fu3MsZXxY6IUHjKRZfS6OA4IUNSKJ6h7/KlQlimXnCI+gLlDYCmZFlyRByODFZSyw4VmiF/9Ys/8P//BBwOseCsqG9f2trc5zt3/3woJGFJEIKiHLxmQQ7RcIpLICK1QQiqVASzUnDrJRPsgyBUJIYdO+SKQ1rMAAQJbZVcPQFVhtE56fJR6NlANFIOsoN+zMibMmPMWJXI/TT3AijVGIJgK4a/ROQ4FPLHDicUfR/LMFl/1uLzgfUonHUWI5bPE01h5/OvfgBYSRwBFH7SrTrnr2f3Ig7ECQWyt15hw3fjbtoZh043TxtyGUPqb4m05ZdNd+7VPk7D8XQalINFw+eCd1KsbpmAFxHcZfdjcPxtmafcrduXuJDjBp/ukDScPwWwyGSGr2oOAGOtU6cEkHA2s67FvL8EgLg47+vh5qGr70iMDJV/Hhq8oAFgF+NwsBRhzsxoMny/3A1IPgTBCJ4c7x5rR2C4I5QIYWwuD1nnx//BrEqDcO4dR75/////coeRODcA+D0fG0uG00Ly0B0OsAkjHXFIIIIpaSlwSQHQbB9BNMB3G6wCwItV8SasFE8BAJIludMEDszSMDjHKOdCU69ZDlKqMvrQ4MgDQJZMBgQwAQlImIQAMi4vSk2WzBoHFABGR//7smQbAPc1Zk1TmE5COMwlYgAJnlstlzBvZS3IAAA0gAAABEAKKl/wqB0V6N1513erhlUHsraWglJhqv2X3cnLTiRTIRGGEBoE0KerKqeXuncpISzWAWcVt8zrQzDr6u0pkv6LurKMa7RWKZ/fdxR5CcaQNyiMLq1dUH5UxdZ71VzZEOFcw7S4O1ATFq1+9ceBoVWGYq/0wIoQTndYIgkKc320qJToGWVABPjEhCpKk169w9Z5fxhKXihZUBFDBEbQs/xx1ZQhEqu/5/SgiBFlmCJEsAAP//1dVdf////////caJQsCoPAcIyQ2ZJiEsdXYfn9bFNg0hRISIZDwwRoJ+KxUsWLqLwDAzytIAAclxgbAfGKgPwZI6pxnEAimMEAcPEKmECQiYJQNZiQgJGAWBSAQcAEBQJAYmBCD6DAFWOF3AvmDlCbEZLGxDmxUPFslhGuKZpQTLWUv4FaJDi8BYxYR6/eVjKoAUSOnLCsvgpqMZsssa7I5a9d2jgGLPZS0EX3EKUHzd3NyraaqFNu0AoQCsj1lhlTsssKoSUgLj+MwzqIrTJzbSa5dWOORl/5rkkXIEsnLNWq4VBB5k7TeJx7Hgujmjevbq8svpzOJKQtAYhBabX8mSQc181+m2nF2zRRLj4AAy3cwcRPDD4OlM0VjUzIAlzGYAQMKUOswxBfzDnDLMEMEIwRAGhhkDpIYtOYpBUMeMF/xEPCGBb8kUgRIBVIwUQMIACwCWjB7TWYOZC8DTVpJ2p1Lmd1YJwmohA5LMq35JToJuhpRHKhx1l5URcUUISznari9HiiX6PNVzMjJ/HgbacamMvaER8FtP/7smRGDMjCaEwb2npwAAANIAAAASXVnyJPae2Ys7McDACXkbGPg404QYyAVaRY1ELwYakZi4EUPsTy54jjDQKtzPIOcfC+fzGhBK1AX2AWAhZvajF7J4xum5vJQb6qck4c7DjqxItjDZ+kzsbZleXwwWpOxjAXKHLOT/XlDFbFWelXze1H+XFaPc3C7m8wIg/0SpEJenefC+l2s5zuUrtlUB2tytVi4Pc0mVNrlXOOgAGswPx8zqtc8N5bq8z/QwDSoEZMI4r4xKlQDGtExMsoGgwfwRDBQAZML4CUwjQBzAxHKMAwCQiYmsKDjkHxTDuhkCfXOZ4wfo0FAqUZZADQyEQ2AwYNDgi+X4DhQJGmGIGHCGGErbMGETEBwcMihcsXFVEYcwGDgwy7kWUMCwkaHjxMRCSTE6GkN5WrgBaTYkpcSRDzCOsRypM+DiUMM+TeOcuTEaJOS7JZGwJzhRSb2rT6N52nVo7RaSdJdTqU6FE0tSqHKUp1KpSqFEsjGnHwZp0rZcpBjGaYjEulWOGSxfXiXQ1WrKHHetxHalZJ7NqcOVsZrolWrTXhPKM/YmkOX6JZNspCkSaijVBex6ejTtOQvRcVwyqRUIXDfnCJMR6pYTzNFMMaYV5CYDMqABt0BIF//5f5+SyAb5jzf///+RA4KHcQIqC85mRrf///9TncQAjHExx5GD4yAAAUjMZgSE+vjIzXSxcNdFCI0AgozFsILMYtDgycBHDNsCfMDAGkEAjhgvhg7Aer/gL4DCs1EdHTU3AANwAzEgo0ahNaJDUm0xYMHBseACIrEASWRUzHhVFlW0viAAQMIkuGMoyMSf/7smQzjPerZcgb22LyPEzHQwDx5ht9WSZvbYvJBTNcwABOeC8BQMWZBoChzTVSYjLJE1omqtJn8C0WnYxHMOh2KQ5RmYilk8Oh6JbxkVsfL3L0bLR4uXdpHQmUS07Ys+tcTFUcTExPV0RydJlZitPbl
+  <div class="btn-list">
+
+    <button class="envelope-btn" onclick="openCard(0, event)">
+      <div class="btn-inner">
+        <span class="btn-icon">💌</span>
+        <div>
+          <div class="btn-label">Contigo</div>
+          <div class="btn-hint">Toca para leer</div>
+        </div>
+        <span class="btn-arrow">→</span>
+      </div>
+    </button>
+
+    <button class="envelope-btn" onclick="openCard(1, event)">
+      <div class="btn-inner">
+        <span class="btn-icon">🌷</span>
+        <div>
+          <div class="btn-label">Tú</div>
+          <div class="btn-hint">Toca para leer</div>
+        </div>
+        <span class="btn-arrow">→</span>
+      </div>
+    </button>
+
+    <button class="envelope-btn" onclick="openCard(2, event)">
+      <div class="btn-inner">
+        <span class="btn-icon">✨</span>
+        <div>
+          <div class="btn-label">El destino</div>
+          <div class="btn-hint">Toca para leer</div>
+        </div>
+        <span class="btn-arrow">→</span>
+      </div>
+    </button>
+
+    <button class="envelope-btn" onclick="openCard(3, event)">
+      <div class="btn-inner">
+        <span class="btn-icon">🌸</span>
+        <div>
+          <div class="btn-label">TE AMO</div>
+          <div class="btn-hint">Toca para leer</div>
+        </div>
+        <span class="btn-arrow">→</span>
+      </div>
+    </button>
+
+    <button class="envelope-btn" onclick="openCard(4, event)">
+      <div class="btn-inner">
+        <span class="btn-icon">🦋</span>
+        <div>
+          <div class="btn-label">Para siempre</div>
+          <div class="btn-hint">Toca para leer</div>
+        </div>
+        <span class="btn-arrow">→</span>
+      </div>
+    </button>
+
+  </div>
+
+  <p class="footer">hecho con todo el amor del mundo 🤍</p>
+</div>
+
+<!-- Modal -->
+<div class="overlay" id="overlay" onclick="closeOnBg(event)">
+  <div class="letter-card" id="letterCard">
+    <div class="letter-title" id="cardTitle"></div>
+    <div class="letter-body"  id="cardBody"></div>
+    <button class="letter-close" onclick="closeCard()">Cerrar carta 🌸</button>
+  </div>
+</div>
+
+<script>
+  /* ── Letter data ── */
+  const cards = [
+    {
+      title: "Contigo",
+      body: `Mi niña hermosa, ya son 5 meses de estar juntotes y la verdad es que jamás pensé poder tener o merecer algo tan bonito como lo que tú me das.
+
+Me salvaste. Me sacaste de un agujero muy profundo y trajiste el sol a mis días más lluviosos dejando siempre un precioso arcoíris.
+
+No sé a quién o a qué agradecerle por haberme enviado a alguien como tú: tan hermosa, atenta, dedicada, trabajadora y lo más importante, igual de loca que yo.
+
+Estos 5 meses solo los puedo describir como mágicos. Haces que el simple hecho de pensar en ti traiga una sonrisa a mi rostro y el hablarte provoque mariposas en mi estómago.
+
+Gracias por haberme escogido. Y prometo escogerte hoy y siempre, por esta vida y todas las que siguen.
+
+Te amo 🌸`
+    },
+    {
+      title: "Tú",
+      body: `Sabes, siempre dije que eres todo lo bueno y bonito de este mundo, pero ¿qué es todo lo bueno y bonito de este mundo?
+
+Pues déjame decirte todo lo que te describe y te identifica en mi mente y corazón:
+
+Eres la chica más fokín perfecta, dulce, cálida, amable, graciosa, guapa, hermosa, linda, preciosa, habladora, bella, increíble, chistosa, sensible, carismática, inteligente, honesta, simpática, empática, divertida, encantadora, apasionada, considerada, generosa, amistosa, interesante, sencilla, talentosa, creativa, cariñosa, confiable, brillante, maravillosa, noble, romántica, chillona, auténtica, alegre, fantástica, genial, atenta, espectacular, extraordinaria, excepcional, feliz, leal, única, adorable, magnífica, fabulosa, atractiva, grandiosa, divina, perfecta.
+
+Y por eso,
+
+Te amo 💕`
+    },
+    {
+      title: "El destino",
+      body: `Sabes, amor, yo jamás he creído en cosas o poderes más allá, pero no hay otra forma de explicar lo que generó esta hermosa relación y conexión que tenemos, más que con el destino.
+
+¿Quién iba a decir que un tonto intento de un tonto niño de secundaria tendría un efecto en cadena tan grande como para llevarme a lo que ahora sería mi mundo entero?
+
+Sinceramente no siento que todo esto sea una simple coincidencia, ya que conectamos tan bien, tan rápido y de manera tan perfecta que me hacen sentir que siempre debiste ser, eres y serás tú la única en mi vida.
+
+Y al parecer yo no soy el único que piensa así, ya que tú misma me lo dijiste un día: también piensas que todo este tiempo tu corazón me estuvo esperando.
+
+Y por esa reacción tan hermosa,
+
+Te amo ✨`
+    },
+    {
+      title: "TE AMO",
+      body: `No sé cuánto tiempo me tomé hacer todo esto, pero espero tenerlo listo para cuando ya hayamos cumplido los 5 mesesotes, y si no pues te pido perdón de rodillas y te lo compensaré con unos abrazotes y unos besotes.
+
+Pero creo que con esto ya te he dicho la mayoría de cosas que mi corazón y mente siempre repasan, así que ya lo sabes, mi niña hermosa:
+
+Te amo de una manera que preocuparía a un psiquiatra.
+
+Te amo de una manera que un matemático jamás podría cuantificar.
+
+Te amo de una manera que un filósofo jamás podría imaginar.
+
+Te amo de una manera que un poeta jamás podría plasmar.
+
+Te amo más que la inmensidad del universo observable.
+
+Te amé ayer, te amo hoy y te amaré mañana.
+
+Simplemente,
+
+Te amo 💛`
+    },
+    {
+      title: "Para siempre",
+      body: `Esta es la carta más corta, pero la que viene más del fondo del corazón.
+
+Sin importar lo que venga, los días difíciles, los días fáciles, los días grises y los días llenos de color, quiero vivirlos todos contigo.
+
+Eres mi calma, mi alegría, mi hogar.
+
+Gracias por existir. Gracias por ser tú. Gracias por elegirme.
+
+Hoy, mañana y siempre,
+
+Te amo, mi niña hermosa 🌸✨💕`
+    }
+  ];
+
+  /* ── Petal rain ── */
+  const symbols = ['🌸','🌺','✿','❀','🌷','💮'];
+  const bg = document.getElementById('petalsBg');
+  for (let i = 0; i < 22; i++) {
+    const p = document.createElement('span');
+    p.classList.add('petal');
+    p.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    p.style.left      = Math.random() * 100 + 'vw';
+    p.style.fontSize  = (.8 + Math.random() * .9) + 'rem';
+    p.style.animationDuration  = (9 + Math.random() * 14) + 's';
+    p.style.animationDelay     = (Math.random() * 12) + 's';
+    bg.appendChild(p);
+  }
+
+  /* ── Open / close modal ── */
+  const overlay    = document.getElementById('overlay');
+  const cardTitle  = document.getElementById('cardTitle');
+  const cardBody   = document.getElementById('cardBody');
+  const letterCard = document.getElementById('letterCard');
+
+  function openCard(index, e) {
+    spawnHearts(e.clientX, e.clientY);
+    cardTitle.textContent = cards[index].title;
+    cardBody.textContent  = cards[index].body;
+    letterCard.scrollTop  = 0;
+    overlay.classList.add('open');
+  }
+
+  function closeCard() { overlay.classList.remove('open'); }
+  function closeOnBg(e) { if (e.target === overlay) closeCard(); }
+
+  /* ── Heart burst ── */
+  function spawnHearts(cx, cy) {
+    const hearts = ['💕','💖','🌸','✨','💗'];
+    for (let i = 0; i < 10; i++) {
+      const h = document.createElement('span');
+      h.classList.add('burst-heart');
+      h.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+      const angle = Math.random() * 2 * Math.PI;
+      const dist  = 60 + Math.random() * 90;
+      h.style.left = cx + 'px';
+      h.style.top  = cy + 'px';
+      h.style.setProperty('--dx', Math.cos(angle) * dist + 'px');
+      h.style.setProperty('--dy', Math.sin(angle) * dist + 'px');
+      h.style.animationDelay = Math.random() * .15 + 's';
+      document.body.appendChild(h);
+      setTimeout(() => h.remove(), 1100);
+    }
+  }
+</script>
+</body>
+</html>
