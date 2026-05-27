@@ -367,7 +367,7 @@
       <div class="btn-inner">
         <span class="btn-icon">🦋</span>
         <div>
-          <div class="btn-label">Para siempre</div>
+          <div class="btn-label">Recuerdos</div>
           <div class="btn-hint">Toca para leer</div>
         </div>
         <span class="btn-arrow">→</span>
@@ -403,7 +403,7 @@ Estos 5 meses solo los puedo describir como mágicos. Haces que el simple hecho 
 
 Gracias por haberme escogido. Y prometo escogerte hoy y siempre, por esta vida y todas las que siguen.
 
-Te amo 🌸`
+Te amo`
     },
     {
       title: "Tú",
@@ -415,7 +415,7 @@ Eres la chica más fokín perfecta, dulce, cálida, amable, graciosa, guapa, her
 
 Y por eso,
 
-Te amo 💕`
+Te amo`
     },
     {
       title: "El destino",
@@ -429,7 +429,7 @@ Y al parecer yo no soy el único que piensa así, ya que tú misma me lo dijiste
 
 Y por esa reacción tan hermosa,
 
-Te amo ✨`
+Te amo`
     },
     {
       title: "TE AMO",
@@ -451,21 +451,21 @@ Te amé ayer, te amo hoy y te amaré mañana.
 
 Simplemente,
 
-Te amo 💛`
+Te amo`
     },
     {
-      title: "Para siempre",
-      body: `Esta es la carta más corta, pero la que viene más del fondo del corazón.
+      title: "Recuerdos",
+      body: `MI NIÑA HERMOSAAAAA, ya vamos pa medio añito y la verdad es que no puedo estar más feliz de haber compartido mi vida junto a una persona tan maravillosa como tú.
 
-Sin importar lo que venga, los días difíciles, los días fáciles, los días grises y los días llenos de color, quiero vivirlos todos contigo.
+Gracias por ser mi rayito de sol, mi esperanza y mi razón para seguir adelante.
 
-Eres mi calma, mi alegría, mi hogar.
+Aun recuerdo la primera vez que pensamos en nuestros apodos, cuando instalamos la app, el chiste del pingüino… por más tontos o minúsculos que sean, yo realmente los atesoro, ya que tú tienes ese poder en mí de hacer cualquier momento algo memorable, algo especial, algo realmente hermoso (no tanto como tú).
 
-Gracias por existir. Gracias por ser tú. Gracias por elegirme.
+Gracias por haberme elegido y seguirme eligiendo como el afortunado que puede tener el privilegio de llamarte su novia. Gracias por hacerme el hombre más feliz de este fokín mundo, y espero estar logrando el mismo efecto en ti.
 
-Hoy, mañana y siempre,
+Por todos estos recuerdos y la manera en la que haces de mi vida algo por lo que vale la pena continuar,
 
-Te amo, mi niña hermosa 🌸✨💕`
+Te amo`
     }
   ];
 
