@@ -437,7 +437,7 @@
 
   <div class="btn-list">
 
-    <button class="envelope-btn" onclick="openCard(0, event)">
+    <button class="envelope-btn" data-card="0">
       <div class="btn-inner">
         <span class="btn-icon">💌</span>
         <div>
@@ -448,7 +448,7 @@
       </div>
     </button>
 
-    <button class="envelope-btn" onclick="openCard(1, event)">
+    <button class="envelope-btn" data-card="1">
       <div class="btn-inner">
         <span class="btn-icon">🌷</span>
         <div>
@@ -459,7 +459,7 @@
       </div>
     </button>
 
-    <button class="envelope-btn" onclick="openCard(2, event)">
+    <button class="envelope-btn" data-card="2">
       <div class="btn-inner">
         <span class="btn-icon">✨</span>
         <div>
@@ -470,7 +470,7 @@
       </div>
     </button>
 
-    <button class="envelope-btn" onclick="openCard(3, event)">
+    <button class="envelope-btn" data-card="3">
       <div class="btn-inner">
         <span class="btn-icon">🌸</span>
         <div>
@@ -481,7 +481,7 @@
       </div>
     </button>
 
-    <button class="envelope-btn" onclick="openCard(4, event)">
+    <button class="envelope-btn" data-card="4">
       <div class="btn-inner">
         <span class="btn-icon">🦋</span>
         <div>
@@ -492,7 +492,7 @@
       </div>
     </button>
 
-    <button class="envelope-btn octopus-btn" onclick="openCard(5, event)">
+    <button class="envelope-btn octopus-btn" data-card="5">
       <div class="btn-inner">
         <span class="btn-icon">🐙</span>
         <div>
@@ -509,7 +509,7 @@
 </div>
 
 <!-- Modal -->
-<div class="overlay" id="overlay" onclick="closeOnBg(event)">
+<div class="overlay" id="overlay">
   <div class="octo-layer" id="octoLayer"></div>
   <div class="letter-card" id="letterCard">
     <div class="letter-title" id="cardTitle"></div>
@@ -524,7 +524,7 @@
       </div>
       <span class="music-banner-arrow">→</span>
     </a>
-    <button class="letter-close" onclick="closeCard()">Cerrar carta 🌸</button>
+    <button class="letter-close" id="closeBtn">Cerrar carta 🌸</button>
   </div>
 </div>
 
@@ -610,4 +610,4 @@ Te amo`
     {
       title: "Mi pulpito azul",
       blue: true,
-      body: `Hola mi pulpito azul, 
+      body: `Hola mi pulpito azul, quise hacer esta carta especial porque waos, 7 meses… eso ya es más de medio año compartiendo nuestra vida, más de medio año 
