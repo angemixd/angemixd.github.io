@@ -158,17 +158,21 @@
 
     /* ── Octopus rain inside overlay-5 ── */
     .octo-layer {
-      position: absolute;
+      position: fixed;
       inset: 0;
       pointer-events: none;
       overflow: hidden;
-      z-index: 0;
+      z-index: 101;
     }
     .octo-float {
       position: absolute;
       opacity: 0;
       animation: floatPetal linear infinite;
       pointer-events: none;
+    }
+    .overlay-5 .letter-card {
+      position: relative;
+      z-index: 102;
     }
 
     /* ── Letter card ── */
@@ -509,9 +513,9 @@ Te amo</div>
   </div>
 </div>
 
+<div class="octo-layer" id="octoLayer"></div>
 <!-- Modal 5 - Mi pulpito azul -->
 <div class="overlay overlay-5">
-  <div class="octo-layer" id="octoLayer"></div>
   <div class="letter-card">
     <div class="letter-title">Mi pulpito azul</div>
     <div class="letter-body">Hola mi pulpito azul, quise hacer esta carta especial porque waos, 7 meses… eso ya es más de medio año compartiendo nuestra vida, más de medio año junto a la mujer más preciosa, bella, hermosa, linda, atenta, amorosa, capaz, inteligente y carismática que jamás he conocido.
@@ -520,6 +524,4 @@ Aun lo siento todo como si fuera un sueño del cual sinceramente espero jamás d
 
 Este último mes ha sido algo difícil, ha habido muchos altibajos, problemas y depresiones, pero eso no es lo que realmente importa acá. Lo que importa es que nosotros estuvimos y estaremos juntos a través de todo eso. Logramos resolver todos y cada uno de nuestros problemitas y de paso hicimos nuestro amor aún más fuerte, y eso es algo que realmente me genera una confianza indescriptible.
 
-En mi mente mi vida junto a ti ya está decidida y no quiero imaginarla con nadie más que no seas tú. Ver que también tienes ese mismo objetivo realmente me hace sentirme tan feliz y confiado de que entre todas las personas en este planeta de mierda pude encontrar a mi almita gemela.
-
-Gracias por amarme tanto. Gracias por dejarme amarte tanto. 
+En mi mente mi vida junto a ti ya está decidida y no quiero imaginarla con nadie más que no seas tú. Ver que también tienes ese mismo objetivo realmente me hace sentirme tan feliz y confiado de que entre todas las personas en este planeta de mierda pude encontrar a 
