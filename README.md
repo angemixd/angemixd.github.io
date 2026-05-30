@@ -9,16 +9,16 @@
     :root {
       --rose:    #f4a7b9;
       --blush:   #fce4ec;
-      --peach:   #ffd6c0;
-      --lavender:#e8d5f5;
       --cream:   #fff8f0;
-      --sage:    #c8dfc8;
       --text:    #5a3e4b;
       --muted:   #9e7b8a;
       --gold:    #d4a0a7;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* Hide all checkboxes */
+    input[type="checkbox"] { display: none; }
 
     body {
       background: var(--cream);
@@ -30,6 +30,10 @@
       transition: background .6s ease;
     }
 
+    /* Blue mode triggered by last checkbox */
+    #card5:checked ~ * body,
+    body.blue { background: #e8f4fd; }
+
     /* ── Floating petals background ── */
     .petals-bg {
       position: fixed;
@@ -40,14 +44,13 @@
     }
     .petal {
       position: absolute;
-      font-size: 1.4rem;
       opacity: 0;
       animation: floatPetal linear infinite;
     }
     @keyframes floatPetal {
       0%   { transform: translateY(-60px) rotate(0deg);   opacity: 0; }
-      10%  { opacity: 0.55; }
-      90%  { opacity: 0.35; }
+      10%  { opacity: 0.5; }
+      90%  { opacity: 0.3; }
       100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
     }
 
@@ -60,179 +63,68 @@
       padding: 60px 24px 80px;
     }
 
-    /* ── Hero header ── */
-    .hero {
-      text-align: center;
-      margin-bottom: 56px;
-      animation: fadeDown .9s ease both;
-    }
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .hero-deco {
-      font-size: 2.6rem;
-      letter-spacing: .18em;
-      display: block;
-      margin-bottom: 8px;
-      animation: fadeDown .9s .15s ease both;
-    }
+    /* ── Hero ── */
+    .hero { text-align: center; margin-bottom: 56px; }
+    .hero-deco { font-size: 2.4rem; letter-spacing: .18em; display: block; margin-bottom: 8px; }
     .hero h1 {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2rem, 6vw, 3.2rem);
-      font-weight: 400;
-      font-style: italic;
-      color: var(--text);
-      line-height: 1.15;
-      animation: fadeDown .9s .25s ease both;
-      transition: color .5s;
+      font-weight: 400; font-style: italic;
+      color: var(--text); line-height: 1.15;
     }
-    .hero-sub {
-      margin-top: 14px;
-      font-size: .95rem;
-      color: var(--muted);
-      letter-spacing: .06em;
-      animation: fadeDown .9s .35s ease both;
-      transition: color .5s;
-    }
+    .hero-sub { margin-top: 14px; font-size: .95rem; color: var(--muted); letter-spacing: .06em; }
     .divider {
-      margin: 28px auto 0;
-      width: 80px;
-      height: 2px;
+      margin: 28px auto 0; width: 80px; height: 2px;
       background: linear-gradient(90deg, transparent, var(--rose), transparent);
       border-radius: 2px;
-      animation: fadeDown .9s .45s ease both;
-      transition: background .5s;
     }
 
     /* ── Button list ── */
-    .btn-list {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
+    .btn-list { display: flex; flex-direction: column; gap: 18px; }
 
-    /* ── Each envelope button ── */
-    .envelope-btn {
+    /* ── Envelope label (acts as button) ── */
+    .envelope-label {
       position: relative;
+      display: block;
       background: linear-gradient(135deg, #fff0f5 0%, #fdf4ff 100%);
       border: 1.5px solid #f0c8d4;
       border-radius: 18px;
       padding: 22px 28px;
       cursor: pointer;
-      text-align: left;
-      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease, background .5s ease;
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
       box-shadow: 0 2px 16px rgba(244,167,185,.18);
-      animation: fadeUp .7s ease both;
       overflow: hidden;
     }
-    .envelope-btn:nth-child(1) { animation-delay: .55s; }
-    .envelope-btn:nth-child(2) { animation-delay: .68s; }
-    .envelope-btn:nth-child(3) { animation-delay: .81s; }
-    .envelope-btn:nth-child(4) { animation-delay: .94s; }
-    .envelope-btn:nth-child(5) { animation-delay:1.07s; }
-    .envelope-btn:nth-child(6) { animation-delay:1.20s; }
+    .envelope-label:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(244,167,185,.30);
+      border-color: var(--rose);
+    }
+    .envelope-label:active { transform: translateY(0) scale(.98); }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .envelope-btn::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(252,228,236,.5), rgba(232,213,245,.4));
-      opacity: 0;
-      transition: opacity .25s;
-      border-radius: inherit;
-    }
-    .envelope-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(244,167,185,.30); border-color: var(--rose); }
-    .envelope-btn:hover::before { opacity: 1; }
-    .envelope-btn:active { transform: translateY(0) scale(.98); }
-
-    .btn-inner {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      position: relative;
-      z-index: 1;
-    }
-    .btn-icon {
-      font-size: 2rem;
-      flex-shrink: 0;
-      transition: transform .3s ease;
-    }
-    .envelope-btn:hover .btn-icon { transform: scale(1.15) rotate(-6deg); }
+    .btn-inner { display: flex; align-items: center; gap: 18px; }
+    .btn-icon { font-size: 2rem; flex-shrink: 0; transition: transform .3s ease; }
+    .envelope-label:hover .btn-icon { transform: scale(1.15) rotate(-6deg); }
     .btn-label {
       font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
-      font-style: italic;
-      color: var(--text);
-      transition: color .5s;
+      font-size: 1.15rem; font-style: italic; color: var(--text);
     }
-    .btn-hint {
-      font-family: 'Lora', serif;
-      font-size: .78rem;
-      color: var(--muted);
-      margin-top: 3px;
-      font-style: normal;
-      transition: color .5s;
-    }
+    .btn-hint { font-size: .78rem; color: var(--muted); margin-top: 3px; }
     .btn-arrow {
-      margin-left: auto;
-      font-size: 1.1rem;
-      color: var(--rose);
-      transition: transform .25s, color .5s;
-      flex-shrink: 0;
+      margin-left: auto; font-size: 1.1rem; color: var(--rose);
+      transition: transform .25s; flex-shrink: 0;
     }
-    .envelope-btn:hover .btn-arrow { transform: translateX(5px); }
+    .envelope-label:hover .btn-arrow { transform: translateX(5px); }
 
-    /* ── Blue theme ── */
-    body.blue-mode { background: #e8f4fd; }
-    body.blue-mode .hero h1,
-    body.blue-mode .btn-label { color: #1a3a5c; }
-    body.blue-mode .hero-sub,
-    body.blue-mode .btn-hint,
-    body.blue-mode .footer { color: #4a7fa5; }
-    body.blue-mode .divider { background: linear-gradient(90deg, transparent, #5ba3d0, transparent); }
-    body.blue-mode .envelope-btn {
-      background: linear-gradient(135deg, #e0f0ff 0%, #d0e8ff 100%);
-      border-color: #90c4e8;
-      box-shadow: 0 2px 16px rgba(91,163,208,.2);
-    }
-    body.blue-mode .envelope-btn:hover {
-      border-color: #5ba3d0;
-      box-shadow: 0 8px 32px rgba(91,163,208,.35);
-    }
-    body.blue-mode .envelope-btn::before {
-      background: linear-gradient(135deg, rgba(176,220,255,.5), rgba(144,196,232,.4));
-    }
-    body.blue-mode .btn-arrow { color: #5ba3d0; }
-    body.blue-mode .overlay { background: rgba(10,40,80,.55); }
-    body.blue-mode .letter-card {
-      background: #f0f8ff;
-      border-color: #90c4e8;
-      box-shadow: 0 24px 80px rgba(10,40,80,.22);
-    }
-    body.blue-mode .letter-card::before,
-    body.blue-mode .letter-card::after { color: #5ba3d0; }
-    body.blue-mode .letter-title { color: #1a3a5c; }
-    body.blue-mode .letter-title::after { background: linear-gradient(90deg, transparent, #5ba3d0, transparent); }
-    body.blue-mode .letter-body { color: #1a3a5c; }
-    body.blue-mode .letter-card::-webkit-scrollbar-thumb { background: #5ba3d0; }
-    body.blue-mode .letter-close {
-      background: linear-gradient(135deg, #5ba3d0, #2a6fa8);
-      box-shadow: 0 4px 18px rgba(91,163,208,.45);
-    }
-    body.blue-mode .letter-close:hover { box-shadow: 0 8px 28px rgba(91,163,208,.55); }
-
-    /* Octopus special button */
-    body.blue-mode .octopus-btn {
+    /* Octopus button style */
+    .octopus-label {
       background: linear-gradient(135deg, #c8e6f8 0%, #b0d8f5 100%);
       border-color: #5ba3d0;
     }
+    .octopus-label:hover { border-color: #2a6fa8; box-shadow: 0 8px 32px rgba(91,163,208,.3); }
+    .octopus-label .btn-arrow { color: #5ba3d0; }
 
-    /* ── Modal overlay ── */
+    /* ── Overlay (shown when checkbox is checked) ── */
     .overlay {
       position: fixed;
       inset: 0;
@@ -245,14 +137,26 @@
       padding: 20px;
       opacity: 0;
       pointer-events: none;
-      transition: opacity .35s ease, background .5s ease;
+      transition: opacity .35s ease;
     }
-    .overlay.open {
+
+    /* Show overlay when its checkbox is checked */
+    #card0:checked ~ .overlay-0,
+    #card1:checked ~ .overlay-1,
+    #card2:checked ~ .overlay-2,
+    #card3:checked ~ .overlay-3,
+    #card4:checked ~ .overlay-4,
+    #card5:checked ~ .overlay-5 {
       opacity: 1;
       pointer-events: all;
     }
 
-    /* ── Octopus layer (behind card, inside overlay) ── */
+    /* Blue overlay for card 5 */
+    #card5:checked ~ .overlay-5 {
+      background: rgba(10,40,80,.55);
+    }
+
+    /* ── Octopus rain inside overlay-5 ── */
     .octo-layer {
       position: absolute;
       inset: 0;
@@ -279,62 +183,62 @@
       position: relative;
       z-index: 1;
       transform: scale(.88) translateY(30px);
-      transition: transform .4s cubic-bezier(.34,1.56,.64,1), background .5s, border-color .5s, box-shadow .5s;
+      transition: transform .4s cubic-bezier(.34,1.56,.64,1), background .5s, border-color .5s;
       padding: 48px 40px 40px;
       border: 1.5px solid #f5d5e0;
     }
-    .overlay.open .letter-card {
+    .overlay-5 .letter-card {
+      background: #f0f8ff;
+      border-color: #90c4e8;
+      box-shadow: 0 24px 80px rgba(10,40,80,.22);
+    }
+
+    #card0:checked ~ .overlay-0 .letter-card,
+    #card1:checked ~ .overlay-1 .letter-card,
+    #card2:checked ~ .overlay-2 .letter-card,
+    #card3:checked ~ .overlay-3 .letter-card,
+    #card4:checked ~ .overlay-4 .letter-card,
+    #card5:checked ~ .overlay-5 .letter-card {
       transform: scale(1) translateY(0);
     }
 
     .letter-card::-webkit-scrollbar { width: 5px; }
     .letter-card::-webkit-scrollbar-track { background: transparent; }
     .letter-card::-webkit-scrollbar-thumb { background: var(--rose); border-radius: 10px; }
+    .overlay-5 .letter-card::-webkit-scrollbar-thumb { background: #5ba3d0; }
 
-    .letter-card::before,
-    .letter-card::after {
-      content: '✿';
-      position: absolute;
-      color: var(--rose);
-      opacity: .5;
-      font-size: 1.3rem;
-      transition: color .5s;
+    .letter-card::before, .letter-card::after {
+      content: '✿'; position: absolute; color: var(--rose); opacity: .5; font-size: 1.3rem;
     }
     .letter-card::before { top: 14px; left: 18px; }
     .letter-card::after  { bottom: 14px; right: 18px; transform: rotate(180deg); }
+    .overlay-5 .letter-card::before,
+    .overlay-5 .letter-card::after { color: #5ba3d0; }
 
     .letter-title {
       font-family: 'Playfair Display', serif;
-      font-size: 1.7rem;
-      font-style: italic;
-      text-align: center;
-      margin-bottom: 28px;
-      color: var(--text);
+      font-size: 1.7rem; font-style: italic;
+      text-align: center; margin-bottom: 28px; color: var(--text);
       position: relative;
-      transition: color .5s;
     }
     .letter-title::after {
-      content: '';
-      display: block;
-      margin: 10px auto 0;
-      width: 60px;
-      height: 2px;
+      content: ''; display: block; margin: 10px auto 0;
+      width: 60px; height: 2px;
       background: linear-gradient(90deg, transparent, var(--rose), transparent);
       border-radius: 2px;
-      transition: background .5s;
     }
+    .overlay-5 .letter-title { color: #1a3a5c; }
+    .overlay-5 .letter-title::after { background: linear-gradient(90deg, transparent, #5ba3d0, transparent); }
 
     .letter-body {
-      font-size: 1rem;
-      line-height: 1.85;
-      white-space: pre-wrap;
-      color: var(--text);
-      transition: color .5s;
+      font-size: 1rem; line-height: 1.85;
+      white-space: pre-wrap; color: var(--text);
     }
+    .overlay-5 .letter-body { color: #1a3a5c; }
 
     /* ── Music banner ── */
     .music-banner {
-      display: none;
+      display: flex;
       margin-top: 28px;
       text-decoration: none;
       background: linear-gradient(135deg, rgba(91,163,208,.15), rgba(42,111,168,.2));
@@ -352,8 +256,7 @@
       background: linear-gradient(135deg, rgba(91,163,208,.25), rgba(42,111,168,.3));
     }
     .music-banner-icon {
-      font-size: 1.8rem;
-      flex-shrink: 0;
+      font-size: 1.8rem; flex-shrink: 0;
       animation: pulse 1.8s ease-in-out infinite;
     }
     @keyframes pulse {
@@ -363,68 +266,66 @@
     .music-banner-text { flex: 1; }
     .music-banner-title {
       font-family: 'Playfair Display', serif;
-      font-size: .95rem;
-      font-style: italic;
-      color: #1a3a5c;
+      font-size: .95rem; font-style: italic; color: #1a3a5c;
     }
-    .music-banner-sub {
-      font-size: .75rem;
-      color: #4a7fa5;
-      margin-top: 3px;
-    }
-    .music-banner-arrow {
-      font-size: 1rem;
-      color: #5ba3d0;
-      transition: transform .2s;
-      flex-shrink: 0;
-    }
+    .music-banner-sub { font-size: .75rem; color: #4a7fa5; margin-top: 3px; }
+    .music-banner-arrow { font-size: 1rem; color: #5ba3d0; transition: transform .2s; flex-shrink: 0; }
     .music-banner:hover .music-banner-arrow { transform: translateX(4px); }
 
+    /* ── Close button (label unchecks the checkbox) ── */
     .letter-close {
       display: block;
       margin: 32px auto 0;
       background: linear-gradient(135deg, var(--rose), var(--gold));
-      color: #fff;
-      border: none;
-      border-radius: 50px;
+      color: #fff; border: none; border-radius: 50px;
       padding: 13px 38px;
-      font-family: 'Lora', serif;
-      font-size: .95rem;
-      cursor: pointer;
-      letter-spacing: .04em;
+      font-family: 'Lora', serif; font-size: .95rem;
+      cursor: pointer; letter-spacing: .04em;
       box-shadow: 0 4px 18px rgba(244,167,185,.4);
-      transition: transform .2s, box-shadow .2s, background .5s;
+      transition: transform .2s, box-shadow .2s;
     }
     .letter-close:hover { transform: scale(1.04); box-shadow: 0 8px 28px rgba(244,167,185,.5); }
-
-    /* ── Heart burst ── */
-    .burst-heart {
-      position: fixed;
-      pointer-events: none;
-      font-size: 1.4rem;
-      z-index: 200;
-      animation: burstAnim .9s ease forwards;
-    }
-    @keyframes burstAnim {
-      0%   { opacity: 1; transform: translate(0,0) scale(.6); }
-      100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(1.4); }
+    .overlay-5 .letter-close {
+      background: linear-gradient(135deg, #5ba3d0, #2a6fa8);
+      box-shadow: 0 4px 18px rgba(91,163,208,.45);
     }
 
     /* ── Footer ── */
     .footer {
-      text-align: center;
-      margin-top: 56px;
-      font-size: .85rem;
-      color: var(--muted);
-      letter-spacing: .05em;
-      animation: fadeUp .7s 1.3s ease both;
-      opacity: 0;
-      transition: color .5s;
+      text-align: center; margin-top: 56px;
+      font-size: .85rem; color: var(--muted); letter-spacing: .05em;
     }
+
+    /* ── Animations ── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero  { animation: fadeDown .9s ease both; }
+    .btn-list > *:nth-child(1) { animation: fadeUp .7s .55s ease both; opacity: 0; animation-fill-mode: both; }
+    .btn-list > *:nth-child(2) { animation: fadeUp .7s .68s ease both; opacity: 0; animation-fill-mode: both; }
+    .btn-list > *:nth-child(3) { animation: fadeUp .7s .81s ease both; opacity: 0; animation-fill-mode: both; }
+    .btn-list > *:nth-child(4) { animation: fadeUp .7s .94s ease both; opacity: 0; animation-fill-mode: both; }
+    .btn-list > *:nth-child(5) { animation: fadeUp .7s 1.07s ease both; opacity: 0; animation-fill-mode: both; }
+    .btn-list > *:nth-child(6) { animation: fadeUp .7s 1.20s ease both; opacity: 0; animation-fill-mode: both; }
+    .footer { animation: fadeUp .7s 1.35s ease both; opacity: 0; animation-fill-mode: both; }
   </style>
 </head>
 <body>
 
+<!-- Checkboxes controlling each modal -->
+<input type="checkbox" id="card0">
+<input type="checkbox" id="card1">
+<input type="checkbox" id="card2">
+<input type="checkbox" id="card3">
+<input type="checkbox" id="card4">
+<input type="checkbox" id="card5">
+
+<!-- Petal rain -->
 <div class="petals-bg" id="petalsBg"></div>
 
 <div class="wrapper">
@@ -437,7 +338,7 @@
 
   <div class="btn-list">
 
-    <button class="envelope-btn" data-card="0">
+    <label class="envelope-label" for="card0">
       <div class="btn-inner">
         <span class="btn-icon">💌</span>
         <div>
@@ -446,9 +347,9 @@
         </div>
         <span class="btn-arrow">→</span>
       </div>
-    </button>
+    </label>
 
-    <button class="envelope-btn" data-card="1">
+    <label class="envelope-label" for="card1">
       <div class="btn-inner">
         <span class="btn-icon">🌷</span>
         <div>
@@ -457,9 +358,9 @@
         </div>
         <span class="btn-arrow">→</span>
       </div>
-    </button>
+    </label>
 
-    <button class="envelope-btn" data-card="2">
+    <label class="envelope-label" for="card2">
       <div class="btn-inner">
         <span class="btn-icon">✨</span>
         <div>
@@ -468,9 +369,9 @@
         </div>
         <span class="btn-arrow">→</span>
       </div>
-    </button>
+    </label>
 
-    <button class="envelope-btn" data-card="3">
+    <label class="envelope-label" for="card3">
       <div class="btn-inner">
         <span class="btn-icon">🌸</span>
         <div>
@@ -479,9 +380,9 @@
         </div>
         <span class="btn-arrow">→</span>
       </div>
-    </button>
+    </label>
 
-    <button class="envelope-btn" data-card="4">
+    <label class="envelope-label" for="card4">
       <div class="btn-inner">
         <span class="btn-icon">🦋</span>
         <div>
@@ -490,9 +391,9 @@
         </div>
         <span class="btn-arrow">→</span>
       </div>
-    </button>
+    </label>
 
-    <button class="envelope-btn octopus-btn" data-card="5">
+    <label class="envelope-label octopus-label" for="card5">
       <div class="btn-inner">
         <span class="btn-icon">🐙</span>
         <div>
@@ -501,39 +402,17 @@
         </div>
         <span class="btn-arrow">→</span>
       </div>
-    </button>
+    </label>
 
   </div>
-
   <p class="footer">hecho con todo el amor del mundo 🤍</p>
 </div>
 
-<!-- Modal -->
-<div class="overlay" id="overlay">
-  <div class="octo-layer" id="octoLayer"></div>
-  <div class="letter-card" id="letterCard">
-    <div class="letter-title" id="cardTitle"></div>
-    <div class="letter-body" id="cardBody"></div>
-    <a class="music-banner" id="musicBanner"
-       href="https://youtu.be/tKdhg9P0ZIQ?si=RS8qxozf9V8p9Se_"
-       target="_blank" rel="noopener">
-      <span class="music-banner-icon">🎵</span>
-      <div class="music-banner-text">
-        <div class="music-banner-title">Escucha nuestra canción</div>
-        <div class="music-banner-sub">Tú Sí Eres Real — toca para abrir</div>
-      </div>
-      <span class="music-banner-arrow">→</span>
-    </a>
-    <button class="letter-close" id="closeBtn">Cerrar carta 🌸</button>
-  </div>
-</div>
-
-<script>
-  /* ── Letter data ── */
-  const cards = [
-    {
-      title: "Contigo",
-      body: `Mi niña hermosa, ya son 5 meses de estar juntotes y la verdad es que jamás pensé poder tener o merecer algo tan bonito como lo que tú me das.
+<!-- Modal 0 - Contigo -->
+<div class="overlay overlay-0">
+  <div class="letter-card">
+    <div class="letter-title">Contigo</div>
+    <div class="letter-body">Mi niña hermosa, ya son 5 meses de estar juntotes y la verdad es que jamás pensé poder tener o merecer algo tan bonito como lo que tú me das.
 
 Me salvaste. Me sacaste de un agujero muy profundo y trajiste el sol a mis días más lluviosos dejando siempre un precioso arcoíris.
 
@@ -543,11 +422,16 @@ Estos 5 meses solo los puedo describir como mágicos. Haces que el simple hecho 
 
 Gracias por haberme escogido. Y prometo escogerte hoy y siempre, por esta vida y todas las que siguen.
 
-Te amo`
-    },
-    {
-      title: "Tú",
-      body: `Sabes, siempre dije que eres todo lo bueno y bonito de este mundo, pero ¿qué es todo lo bueno y bonito de este mundo?
+Te amo</div>
+    <label class="letter-close" for="card0">Cerrar carta 🌸</label>
+  </div>
+</div>
+
+<!-- Modal 1 - Tú -->
+<div class="overlay overlay-1">
+  <div class="letter-card">
+    <div class="letter-title">Tú</div>
+    <div class="letter-body">Sabes, siempre dije que eres todo lo bueno y bonito de este mundo, pero ¿qué es todo lo bueno y bonito de este mundo?
 
 Pues déjame decirte todo lo que te describe y te identifica en mi mente y corazón:
 
@@ -555,11 +439,16 @@ Eres la chica más fokín perfecta, dulce, cálida, amable, graciosa, guapa, her
 
 Y por eso,
 
-Te amo`
-    },
-    {
-      title: "El destino",
-      body: `Sabes, amor, yo jamás he creído en cosas o poderes más allá, pero no hay otra forma de explicar lo que generó esta hermosa relación y conexión que tenemos, más que con el destino.
+Te amo</div>
+    <label class="letter-close" for="card1">Cerrar carta 🌸</label>
+  </div>
+</div>
+
+<!-- Modal 2 - El destino -->
+<div class="overlay overlay-2">
+  <div class="letter-card">
+    <div class="letter-title">El destino</div>
+    <div class="letter-body">Sabes, amor, yo jamás he creído en cosas o poderes más allá, pero no hay otra forma de explicar lo que generó esta hermosa relación y conexión que tenemos, más que con el destino.
 
 ¿Quién iba a decir que un tonto intento de un tonto niño de secundaria tendría un efecto en cadena tan grande como para llevarme a lo que ahora sería mi mundo entero?
 
@@ -569,11 +458,16 @@ Y al parecer yo no soy el único que piensa así, ya que tú misma me lo dijiste
 
 Y por esa reacción tan hermosa,
 
-Te amo`
-    },
-    {
-      title: "TE AMO",
-      body: `No sé cuánto tiempo me tomé hacer todo esto, pero espero tenerlo listo para cuando ya hayamos cumplido los 5 mesesotes, y si no pues te pido perdón de rodillas y te lo compensaré con unos abrazotes y unos besotes.
+Te amo</div>
+    <label class="letter-close" for="card2">Cerrar carta 🌸</label>
+  </div>
+</div>
+
+<!-- Modal 3 - TE AMO -->
+<div class="overlay overlay-3">
+  <div class="letter-card">
+    <div class="letter-title">TE AMO</div>
+    <div class="letter-body">No sé cuánto tiempo me tomé hacer todo esto, pero espero tenerlo listo para cuando ya hayamos cumplido los 5 mesesotes, y si no pues te pido perdón de rodillas y te lo compensaré con unos abrazotes y unos besotes.
 
 Pero creo que con esto ya te he dicho la mayoría de cosas que mi corazón y mente siempre repasan, así que ya lo sabes, mi niña hermosa:
 
@@ -591,11 +485,16 @@ Te amé ayer, te amo hoy y te amaré mañana.
 
 Simplemente,
 
-Te amo`
-    },
-    {
-      title: "Recuerdos",
-      body: `MI NIÑA HERMOSAAAAA, ya vamos pa medio añito y la verdad es que no puedo estar más feliz de haber compartido mi vida junto a una persona tan maravillosa como tú.
+Te amo</div>
+    <label class="letter-close" for="card3">Cerrar carta 🌸</label>
+  </div>
+</div>
+
+<!-- Modal 4 - Recuerdos -->
+<div class="overlay overlay-4">
+  <div class="letter-card">
+    <div class="letter-title">Recuerdos</div>
+    <div class="letter-body">MI NIÑA HERMOSAAAAA, ya vamos pa medio añito y la verdad es que no puedo estar más feliz de haber compartido mi vida junto a una persona tan maravillosa como tú.
 
 Gracias por ser mi rayito de sol, mi esperanza y mi razón para seguir adelante.
 
@@ -605,9 +504,22 @@ Gracias por haberme elegido y seguirme eligiendo como el afortunado que puede te
 
 Por todos estos recuerdos y la manera en la que haces de mi vida algo por lo que vale la pena continuar,
 
-Te amo`
-    },
-    {
-      title: "Mi pulpito azul",
-      blue: true,
-      body: `Hola mi pulpito azul, quise hacer esta carta especial porque waos, 7 meses… eso ya es más de medio año compartiendo nuestra vida, más de medio año 
+Te amo</div>
+    <label class="letter-close" for="card4">Cerrar carta 🌸</label>
+  </div>
+</div>
+
+<!-- Modal 5 - Mi pulpito azul -->
+<div class="overlay overlay-5">
+  <div class="octo-layer" id="octoLayer"></div>
+  <div class="letter-card">
+    <div class="letter-title">Mi pulpito azul</div>
+    <div class="letter-body">Hola mi pulpito azul, quise hacer esta carta especial porque waos, 7 meses… eso ya es más de medio año compartiendo nuestra vida, más de medio año junto a la mujer más preciosa, bella, hermosa, linda, atenta, amorosa, capaz, inteligente y carismática que jamás he conocido.
+
+Aun lo siento todo como si fuera un sueño del cual sinceramente espero jamás despertar.
+
+Este último mes ha sido algo difícil, ha habido muchos altibajos, problemas y depresiones, pero eso no es lo que realmente importa acá. Lo que importa es que nosotros estuvimos y estaremos juntos a través de todo eso. Logramos resolver todos y cada uno de nuestros problemitas y de paso hicimos nuestro amor aún más fuerte, y eso es algo que realmente me genera una confianza indescriptible.
+
+En mi mente mi vida junto a ti ya está decidida y no quiero imaginarla con nadie más que no seas tú. Ver que también tienes ese mismo objetivo realmente me hace sentirme tan feliz y confiado de que entre todas las personas en este planeta de mierda pude encontrar a mi almita gemela.
+
+Gracias por amarme tanto. Gracias por dejarme amarte tanto. 
