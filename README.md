@@ -221,7 +221,7 @@
     </button>
   </div>
 
-  <p class="footer">hecho con todo el amor del mundo 🤍</p>
+  <p class="footer">hecho con todo el amor del mundo </p>
 </div>
 
 <!-- Single reusable overlay -->
@@ -245,6 +245,8 @@
 <div class="octo-layer" id="octoLayer"></div>
 
 <script>
+document.addEventListener("DOMContentLoaded", function() {
+
   const cards = [
     {
       title: "Contigo",
@@ -437,5 +439,4 @@ Te amo como no tienes una idea, mi pulpito azul, y espero que este amor nos dure
     o.style.animationDuration = (7 + Math.random() * 11) + 's';
     o.style.animationDelay = delay + 'ms';
     octoLayer.appendChild(o);
-    const ttl = parseFloat(o.style.animationDuration) * 1000 + delay + 600;
-    setTimeout(function() { if (o.parentNode) o.remove
+    const ttl = parseFloat(o.style.animationDuration) * 1000 + delay +
