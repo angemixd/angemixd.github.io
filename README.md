@@ -381,6 +381,13 @@ body {
         <span class="btn-arrow">→</span>
       </div>
     </button>
+    <button class="card-btn" onclick="openCard(6)">
+      <div class="btn-inner">
+        <span class="btn-icon">💞</span>
+        <div><div class="btn-label">ti amu</div><div class="btn-hint">Toca para leer</div></div>
+        <span class="btn-arrow">→</span>
+      </div>
+    </button>
   </div>
 
   <p class="footer">hecho con todo el amor del mundo 🤍</p>
@@ -432,6 +439,10 @@ var cards = [
     title: "Mi pulpito azul",
     blue: true,
     body: "Hola mi pulpito azul, quise hacer esta carta especial porque waos, 7 meses… eso ya es más de medio año compartiendo nuestra vida, más de medio año junto a la mujer más preciosa, bella, hermosa, linda, atenta, amorosa, capaz, inteligente y carismática que jamás he conocido.\n\nAun lo siento todo como si fuera un sueño del cual sinceramente espero jamás despertar.\n\nEste último mes ha sido algo difícil, ha habido muchos altibajos, problemas y depresiones, pero eso no es lo que realmente importa acá. Lo que importa es que nosotros estuvimos y estaremos juntos a través de todo eso. Logramos resolver todos y cada uno de nuestros problemitas y de paso hicimos nuestro amor aún más fuerte, y eso es algo que realmente me genera una confianza indescriptible.\n\nEn mi mente mi vida junto a ti ya está decidida y no quiero imaginarla con nadie más que no seas tú. Ver que también tienes ese mismo objetivo realmente me hace sentirme tan feliz y confiado de que entre todas las personas en este planeta de mierda pude encontrar a mi almita gemela.\n\nGracias por amarme tanto. Gracias por dejarme amarte tanto. Gracias por todo lo que haces por mí, y espero yo estar haciendo lo suficiente por ti.\n\nTe dedico esta cancioncita, porque creo que recopila muy bien mi sentimiento y el cómo llegaste a mi vida dándome las energías y las ganas de continuar a tu lado.\n\nGracias por ser mi solecito por las mañanas.\n\nTe amo como no tienes una idea, mi pulpito azul, y espero que este amor nos dure eternidades."
+  },
+  {
+    title: "ti amu",
+    body: "Mi niña preciosota ya son 8 meses los cuales eh compartido cada segundo de mi vida junto a ti y la verdad es algo de lo cual estoy sorprendido y feliz al mismo tiempo sabes?, llegaste de la nada iluminaste mi vida y te quedaste junto a mi prometiendo continuar a mi lado durante toda la eternidad y la verdad es que lo creo.\n\nNo se porque pero simplemente me das esa seguridad y ese sentimiento de amor tan enorme que no me da miedo entregarte mi esencia de manera completa, se siente como si mi corazon fuera resguardado en una cajita de cristal para luego ser consentido con el amor de una fokin diosa y ese sentimientote es algo que jamas habia sentido, ni en lo mas minimo, todo contigo es nuevo, refrescante y hermoso y ahora solo estoy pensando en mi futuro junto a ti, en todo lo que podemos hacer y haremos y tambien en cuanto te amo y te seguire amando cada vez mas por toda la eternidad, gracias por elegir compartir tu vida conmigo, prometo no defraudarte y darte todo de mi para que tu estancia junto a mi este llena de besotes, amor y seguridad.\n\nTi amu con toda mi fokin alma, cuerpo y mente mi amol, gracias por seguir a mi lado"
   }
 ];
 
