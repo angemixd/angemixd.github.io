@@ -388,6 +388,13 @@ body {
         <span class="btn-arrow">→</span>
       </div>
     </button>
+    <button class="card-btn" onclick="openCard(7)">
+      <div class="btn-inner">
+        <span class="btn-icon">🌙</span>
+        <div><div class="btn-label">y contando</div><div class="btn-hint">Toca para leer</div></div>
+        <span class="btn-arrow">→</span>
+      </div>
+    </button>
   </div>
 
   <p class="footer">hecho con todo el amor del mundo 🤍</p>
@@ -398,11 +405,11 @@ body {
   <div class="letter-card" id="letterCard">
     <div class="letter-title" id="cardTitle"></div>
     <div class="letter-body" id="cardBody"></div>
-    <a class="music-banner" id="musicBanner" href="https://youtu.be/tKdhg9P0ZIQ?si=RS8qxozf9V8p9Se_" target="_blank">
+    <a class="music-banner" id="musicBanner" href="#" target="_blank">
       <span class="music-icon">🎵</span>
       <div>
         <div class="music-title">Escucha nuestra canción</div>
-        <div class="music-sub">Tú Sí Eres Real — toca para abrir</div>
+        <div class="music-sub" id="musicSub"></div>
       </div>
       <span class="music-arrow">→</span>
     </a>
@@ -443,6 +450,13 @@ var cards = [
   {
     title: "ti amu",
     body: "Mi niña preciosota ya son 8 meses los cuales eh compartido cada segundo de mi vida junto a ti y la verdad es algo de lo cual estoy sorprendido y feliz al mismo tiempo sabes?, llegaste de la nada iluminaste mi vida y te quedaste junto a mi prometiendo continuar a mi lado durante toda la eternidad y la verdad es que lo creo.\n\nNo se porque pero simplemente me das esa seguridad y ese sentimiento de amor tan enorme que no me da miedo entregarte mi esencia de manera completa, se siente como si mi corazon fuera resguardado en una cajita de cristal para luego ser consentido con el amor de una fokin diosa y ese sentimientote es algo que jamas habia sentido, ni en lo mas minimo, todo contigo es nuevo, refrescante y hermoso y ahora solo estoy pensando en mi futuro junto a ti, en todo lo que podemos hacer y haremos y tambien en cuanto te amo y te seguire amando cada vez mas por toda la eternidad, gracias por elegir compartir tu vida conmigo, prometo no defraudarte y darte todo de mi para que tu estancia junto a mi este llena de besotes, amor y seguridad.\n\nTi amu con toda mi fokin alma, cuerpo y mente mi amol, gracias por seguir a mi lado"
+  },
+  {
+    title: "y contando",
+    music: true,
+    musicHref: "https://youtu.be/1oOoOJDbhXQ?si=0C90Tt59D6RdrLYP",
+    musicSub: "toma, te la dedico por preciosota \u2665",
+    body: "Jelou mi niña preciosa, escribo esto en uno de esos dias en los que no puedo realmente dormir y solo te queria decir que gracias por darme los 9 meses mas felices de toda mi putisima vida, te amo tanto que nisiquiera yo puedo explicarlo y a veces me sorprendo a mi mismo con lo que puedo llegar a sentir y todo es gracias a ti, espero enserio poder seguir amandonos de esta manera y de mil maneras mas porque enserio creo que encontre mi almita gemela en ti.\n\nMe siento tan feliz, seguro y amado a tu lado que simplemente no me da miedo darte mi alma entera cuando con cualquier persona hasta me da miedo demostrar algun tipo de emocion en mi cara por temor a que se aprovechen de ello. Y me estoy dando cuenta de que realmente estoy enamorado de ti, sabes... no puedo parar de pensar en \"la quiero aqui\" \"quiero adelantar el tiempo para que ya no nos pongan trabas\" \"quiero despertar a su lado\" \"quiero hacerle el desayuno\" y muchisimas cosas mas y wow, jamas habia pensado eso con nadie mas, nisiquiera sabia que podia llegar a sentir tanto.\n\nPero tu realmente me ayudaste a salir de mi caparazon y demostrar como soy sin reprimirme, demostrar que tambien siento y que tambien puedo amar con fokin locura.\n\nEste mes ha sido un poco... como llamarlo?? feo?? por asi decirlo, ha habido muchisimas platicas y sabes, me alegra que las haya porque significa que realmente queremos seguir juntotes y estamos luchando por ello.\n\nPero como sea, tu eres y siempre seras mi almita gemela sin importar que. Gracias por estos 9 mesesotes tan magicos y contando, hermosa.\n\nTE AMOOOOOOOOO MI PULPITO AZUUUUUL"
   }
 ];
 
@@ -463,72 +477,14 @@ function openCard(index) {
   if (card.blue) {
     overlay.className = 'overlay active blue';
     letterCard.className = 'letter-card blue';
-    musicBanner.style.display = 'flex';
     document.body.style.background = '#e8f4fd';
     startOctos();
   } else {
     overlay.className = 'overlay active';
     letterCard.className = 'letter-card';
-    musicBanner.style.display = 'none';
     document.body.style.background = '#fff8f0';
     stopOctos();
   }
-}
 
-function closeCard() {
-  overlay.className = 'overlay';
-  document.body.style.background = '#fff8f0';
-  stopOctos();
-}
-
-function handleOverlayClick(e) {
-  if (e.target === overlay) closeCard();
-}
-
-// Petal rain
-var symbols = ['🌸','🌺','✿','❀','🌷','💮'];
-var petalsBg = document.getElementById('petalsBg');
-for (var i = 0; i < 22; i++) {
-  (function(i) {
-    var p = document.createElement('span');
-    p.className = 'petal';
-    p.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-    p.style.left = (Math.random() * 100) + 'vw';
-    p.style.fontSize = (0.8 + Math.random() * 0.9) + 'rem';
-    p.style.animationDuration = (9 + Math.random() * 14) + 's';
-    p.style.animationDelay = (Math.random() * 12) + 's';
-    petalsBg.appendChild(p);
-  })(i);
-}
-
-// Octopus rain
-function startOctos() {
-  stopOctos();
-  octoLayer.className = 'octo-layer active';
-  for (var i = 0; i < 18; i++) {
-    (function(i) { setTimeout(function() { spawnOcto(); }, i * 300); })(i);
-  }
-  octoInterval = setInterval(spawnOcto, 1400);
-}
-
-function spawnOcto() {
-  var o = document.createElement('span');
-  o.className = 'octo-float';
-  o.textContent = '🐙';
-  o.style.left = (Math.random() * 100) + '%';
-  o.style.fontSize = (1.4 + Math.random() * 1.6) + 'rem';
-  o.style.animationDuration = (7 + Math.random() * 11) + 's';
-  o.style.animationDelay = '0ms';
-  octoLayer.appendChild(o);
-  var ttl = parseFloat(o.style.animationDuration) * 1000 + 600;
-  setTimeout(function() { if (o.parentNode) o.remove(); }, ttl);
-}
-
-function stopOctos() {
-  if (octoInterval) { clearInterval(octoInterval); octoInterval = null; }
-  octoLayer.className = 'octo-layer';
-  octoLayer.innerHTML = '';
-}
-</script>
-</body>
-</html>
+  if (card.music || card.blue) {
+    musicBanner.href = card.musicHref || 'https://youtu
