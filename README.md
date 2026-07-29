@@ -454,4 +454,72 @@ TE AMOOOOOOOOO MI PULPITO AZUUUUUL</div>
     <a class="music-banner" href="https://youtu.be/1oOoOJDbhXQ?si=0C90Tt59D6RdrLYP" target="_blank">
       <span class="music-icon">🎵</span>
       <div>
-        <div class="music-title">Toma, te la dedico por preciosota ♡</div
+        <div class="music-title">Toma, te la dedico por preciosota ♡</div>
+        <div class="music-sub">toca para abrir</div>
+      </div>
+      <span class="music-arrow">→</span>
+    </a>
+    <a class="close-btn" href="#">Cerrar carta 🌸</a>
+  </div>
+</div>
+
+<script>
+// Petal rain
+var symbols = ['🌸','🌺','✿','❀','🌷','💮'];
+var bg = document.getElementById('petalsBg');
+for (var i = 0; i < 22; i++) {
+  var p = document.createElement('span');
+  p.className = 'petal';
+  p.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+  p.style.left = (Math.random() * 100) + 'vw';
+  p.style.fontSize = (0.8 + Math.random() * 0.9) + 'rem';
+  p.style.animationDuration = (9 + Math.random() * 14) + 's';
+  p.style.animationDelay = (Math.random() * 12) + 's';
+  bg.appendChild(p);
+}
+
+// Octopus rain for carta5
+var octoLayer = document.getElementById('octoLayer');
+var octoInterval = null;
+
+function checkHash() {
+  if (window.location.hash === '#carta5') {
+    startOctos();
+  } else {
+    stopOctos();
+  }
+}
+
+window.addEventListener('hashchange', checkHash);
+window.addEventListener('load', checkHash);
+
+function startOctos() {
+  stopOctos();
+  octoLayer.className = 'octo-layer active';
+  for (var i = 0; i < 18; i++) {
+    (function(i){ setTimeout(spawnOcto, i * 300); })(i);
+  }
+  octoInterval = setInterval(spawnOcto, 1400);
+}
+
+function spawnOcto() {
+  var o = document.createElement('span');
+  o.className = 'octo-float';
+  o.textContent = '🐙';
+  o.style.left = (Math.random() * 100) + '%';
+  o.style.fontSize = (1.4 + Math.random() * 1.6) + 'rem';
+  o.style.animationDuration = (7 + Math.random() * 11) + 's';
+  o.style.animationDelay = '0ms';
+  octoLayer.appendChild(o);
+  var ttl = parseFloat(o.style.animationDuration) * 1000 + 600;
+  setTimeout(function(){ if (o.parentNode) o.remove(); }, ttl);
+}
+
+function stopOctos() {
+  if (octoInterval) { clearInterval(octoInterval); octoInterval = null; }
+  octoLayer.className = 'octo-layer';
+  octoLayer.innerHTML = '';
+}
+</script>
+</body>
+</html>
