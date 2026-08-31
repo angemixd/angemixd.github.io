@@ -286,6 +286,14 @@ body {
       </div>
     </a>
 
+    <a class="card-btn" href="#carta8">
+      <div class="btn-inner">
+        <span class="btn-icon">🎉</span>
+        <div><div class="btn-label">10 mesesoteeees</div><div class="btn-hint">Toca para leer</div></div>
+        <span class="btn-arrow">→</span>
+      </div>
+    </a>
+
   </div>
   <p class="footer">hecho con todo el amor del mundo 🤍</p>
 </div>
@@ -448,13 +456,38 @@ Pero tu realmente me ayudaste a salir de mi caparazon y demostrar como soy sin r
 
 Este mes ha sido un poco... como llamarlo?? feo?? por asi decirlo, ha habido muchisimas platicas y sabes, me alegra que las haya porque significa que realmente queremos seguir juntotes y estamos luchando por ello.
 
-Pero como sea, tu eres y siempre seras mi almita gemela sin importar que. Gracias por estos 9 mesesotes tan magicos y contando, hermosa.
+Pero como sea, tu eres y siempre seras mi almita gemela sin importar que. Gracias por estos 9 mesesotes tan magicos y contando, hermosota.
 
 TE AMOOOOOOOOO MI PULPITO AZUUUUUL</div>
     <a class="music-banner" href="https://youtu.be/1oOoOJDbhXQ?si=0C90Tt59D6RdrLYP" target="_blank">
       <span class="music-icon">🎵</span>
       <div>
         <div class="music-title">Toma, te la dedico por preciosota ♡</div>
+        <div class="music-sub">toca para abrir</div>
+      </div>
+      <span class="music-arrow">→</span>
+    </a>
+    <a class="close-btn" href="#">Cerrar carta 🌸</a>
+  </div>
+</div>
+
+<!-- MODAL 8 - 10 mesesoteeees -->
+<div class="modal" id="carta8">
+  <div class="letter-card">
+    <div class="letter-title">10 mesesoteeees</div>
+    <div class="letter-body">Mi niña hermosha, ya 10 meses compartiendo mi vida junto a ti y la verdad es que no hubiera podido imaginar una mejor manera de vivir, tu risa, tus ojitos, tu carita, tu humor y tu forma de ser alegran todos mis dias incluso cuando estas lejos un mensajito tuyo es suficiente para ponerle color a mi mundo, gracias por acompañarme todos estos meses y años que estan por venir mi amol.
+
+Los dos estamos a punto de convertirnos en adultos (putamadrequemiedo) pero me tranquiliza un poco saber que lo haremos juntos ya que los dos sabemos que mientras estemos juntitos podremos con todo y todos.
+
+Me parece sorprendente lo rapido que se me paso el tiempo estando a tu lado, un dia estaba nervioso pensando que me estaban gastando una broma y ahora estoy a 2 meses de cumplir el primer aniversario con la que yo creo y afirmo es mi alma gemela.
+
+La vida tiene formas muy graciosas de hacer las cosas pero agradezco mucho que haya hecho que nos volvamos a encontrar ya que siento que contigo no me hace falta nada mas, digo en un inicio nisiquiera buscaba a alguien pero ahora se que ya no hay nada mas que buscar, me siento completo y entero junto a ti mi niña hermosa y espero que todos estos sentimientos sean recíprocos.
+
+Gracias por estos 10 mesesotes mi pulpito azul, ti amu con toda mi alma, cuerpo, mente, cosaron y colita sensible MUAAAAAH</div>
+    <a class="music-banner" href="https://youtu.be/J5RyC2nW0Oo?si=em4uxPXz51ofhotO" target="_blank">
+      <span class="music-icon">🎵</span>
+      <div>
+        <div class="music-title">Escucha esta canción ♡</div>
         <div class="music-sub">toca para abrir</div>
       </div>
       <span class="music-arrow">→</span>
