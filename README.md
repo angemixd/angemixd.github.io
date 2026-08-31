@@ -288,7 +288,7 @@ body {
 
     <a class="card-btn" href="#carta8">
       <div class="btn-inner">
-        <span class="btn-icon">🎉</span>
+        <span class="btn-icon">💗</span>
         <div><div class="btn-label">10 mesesoteeees</div><div class="btn-hint">Toca para leer</div></div>
         <span class="btn-arrow">→</span>
       </div>
